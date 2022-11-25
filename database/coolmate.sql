@@ -16,7 +16,7 @@ INSERT INTO `admins` (`username`, `password`) VALUES
 --contact customer---
 ------
 CREATE TABLE `contacts` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone` char(10) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE `contacts` (
 ---member---
 ------
 CREATE TABLE `member` (
-    `id` int(11) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `username` varchar(20) NOT NULL,
     `phone_number` varchar(20) NOT NULL,
     `email` varchar(50) NOT NULL,
@@ -57,29 +57,3 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`name`, `price`, `image`, `type`, `quantity`, `description`) VALUES
 ('Outlet - Áo sát nách thể thao nam Dri-Breathe thoáng mát tối đa','189000','','Áo Tank top','Vải Polyester tính năng','Chất liệu: 100% Polyester, tính năng Quick Dry (Nhanh Khô) Kiểu dệt Twill (chéo) mới mang lại cảm giác thoải mái khi mặc Phù hợp với: đi làm, đi chơi, mặc ở nhà Kiểu dáng: regularfit dáng suông')
 
---
--- Chỉ mục cho bảng `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`username`);
-
---
--- Chỉ mục cho bảng `contacts`
---
-ALTER TABLE `contacts`
-  ADD PRIMARY KEY (`id`);
-
-
---
--- Chỉ mục cho bảng `members`
---
-ALTER TABLE `members`
-  ADD PRIMARY KEY (`username`);
-
-ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT cho bảng `contacts`
---
-ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
