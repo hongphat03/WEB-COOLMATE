@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="user/login.php">login</a>
-    <a href="user/register.php">register</a>
-    <a href="user/feedback.php">Gui phan hoi</a>
-    <div>
-        <a href="./product/category.php">San pham</a>
-    </div>
+    <p>Danh muc</p>
+    <ul>
+        <li><a href="tanktop.php">Áo Tank top </a></li>
+        <li><a href="tshirt.php">Áo T-shirt </a></li>
+        <li><a href="polo.php">Áo Polo </a></li>
+    </ul>
 </body>
 </html>

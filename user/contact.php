@@ -2,7 +2,7 @@
 	session_start();
 	
 	if(!empty($_POST)) {
-		require_once('database/dbhelper.php');
+		require_once('../database/dbhelper.php');
 		$name = $email = $address = $phone_number = '';
 		if(isset($_POST['email'])) {
 			$email = $_POST['email'];
@@ -19,6 +19,7 @@
 		if(!empty($email) && !empty($phone_number) && !empty($address)) {
 			$sql = "insert into contacts (address,phone_number,email,name) values('$address','$phone_number','$email','$name')";
             execute($sql);
+            
 			}
 		}
 ?>
@@ -49,7 +50,7 @@
         <label for="email" class="form-text"><b>Email</b> </label>    <br>
         <input type="email" name="email" class="form-control">    <br>
     
-       
+        
         <!-- submit -->
         <button class="btn btn-success">Mua hang</button>
     </form>

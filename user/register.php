@@ -1,7 +1,7 @@
 
 <?php 
     session_start();
-    require_once('database/dbhelper.php'); 
+    require_once('../database/dbhelper.php'); 
     if(!empty($_POST)) {
         $name = $phone = $email = $password = $password2 = "";
         if(isset($_POST['name'])){

@@ -12,5 +12,8 @@
     <a href="./feedback.php">Quan ly feedback</a>
     <a href="./contact.php">Quan ly thong tin khach hang</a>
     <a href="./admins.php">Danh sach Admin</a>
+    <div>
+        <a href="./view-product.php">Quan ly san pham</a>
+    </div>
 </body>
 </html>

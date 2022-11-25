@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!empty($_POST)) {
-		require_once('database/dbhelper.php');
+		require_once('../database/dbhelper.php');
         $username = $phone_number= $content = "";
         $email = $_SESSION['email'];
         if(isset($_POST['name']) && isset($_POST['phone_number']) && isset($_POST['content'])){
@@ -29,9 +29,9 @@
         <label for="phone_number" class="form-text"><b>SDT</b> </label>    <br>
         <input type="text" name="phone_number" class="form-control">    <br>
         <!-- dia chi -->
-        <label for="content" class="form-text"><b>Dia chi</b> </label>    <br>
+        <label for="content" class="form-text"><b>Noi dung</b> </label>    <br>
         <textarea name="content" id="" cols="30" rows="10"></textarea>
-        <button class="btn btn-success">Mua hang</button>
+        <button class="btn btn-success">Gui</button>
     </form>
 </body>
 </html>
