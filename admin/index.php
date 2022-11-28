@@ -15,5 +15,8 @@
     <div>
         <a href="./view-product.php">Quan ly san pham</a>
     </div>
+    <div>
+        <a href="./order.php">Quan ly don hang</a>
+    </div>
 </body>
 </html>

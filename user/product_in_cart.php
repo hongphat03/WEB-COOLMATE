@@ -22,7 +22,8 @@
             }
             if(isset($_POST['phone_number'])) {
                 $phone_number = $_POST['phone_number'];
-            }           
+            }  
+        }         
           
 ?>
 <!DOCTYPE html>
@@ -51,11 +52,13 @@
             $result = executeResult($sql);
             if(count($result) > 0){
                 foreach($result as $row ){
+                    
                     $idProduct = $row['productId'];
                     $sql2 = "select * from products where id = '$idProduct'";
                     $result2 = executeResult($sql2);
                     foreach($result2 as $row2 ){
             ?>
+            
             <tr>
                 <td><?php echo $row2['name']?></td>
                 <td><?php echo $row2['price']?></td>
@@ -106,7 +109,6 @@
             $sql = "insert into orders (email,name,address,phone,product,total,status) values('$email','$name','$address','$phone_number','$product','$totalCost','0') ";
             execute($sql);
             }
-        }
         ?>
         <button class="btn btn-success" name="buy">Mua hang</button>
     </form>
