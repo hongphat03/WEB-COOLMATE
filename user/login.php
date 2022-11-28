@@ -15,7 +15,6 @@
 			$result = executeResult($sql);
 			if($result != null && count($result) > 0) {
 				//login success
-				$_SESSION['email'] = $email;
 				header('Location: ../admin/index.php');
 				die();
 			}
@@ -24,6 +23,9 @@
 			if($result != null && count($result) > 0) {
 				//login success
 				$_SESSION['email'] = $email;
+				foreach($result as $row ){
+				$_SESSION['UserId'] = $row['id'];
+				}
 				header('Location: ../index.php');
 				die();
 			}

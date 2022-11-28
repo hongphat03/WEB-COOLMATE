@@ -19,7 +19,8 @@
 		if(!empty($email) && !empty($phone_number) && !empty($address)) {
 			$sql = "insert into contacts (address,phone_number,email,name) values('$address','$phone_number','$email','$name')";
             execute($sql);
-            
+            $link = "../product/polo.php";
+            header("Location: $link");
 			}
 		}
 ?>

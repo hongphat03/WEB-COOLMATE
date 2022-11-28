@@ -11,7 +11,10 @@
     <a href="user/register.php">register</a>
     <a href="user/feedback.php">Gui phan hoi</a>
     <div>
-        <a href="./product/category.php">San pham</a>
+        <a href="./product/products.php">San pham</a>
+    </div>
+    <div>
+        <a href="user/product_in_cart.php">Gio hang</a>
     </div>
 </body>
 </html>
