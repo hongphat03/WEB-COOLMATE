@@ -23,9 +23,6 @@
 			if($result != null && count($result) > 0) {
 				//login success
 				$_SESSION['email'] = $email;
-				foreach($result as $row ){
-				$_SESSION['UserId'] = $row['id'];
-				}
 				header('Location: ../index.php');
 				die();
 			}

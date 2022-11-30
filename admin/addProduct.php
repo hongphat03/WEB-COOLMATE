@@ -31,7 +31,6 @@
 </head>
 <body>
 <div class="container p-5 my-5 border">
-   
     <form method="post">      
         <!-- name  -->
         <label for="name" class="form-text"><b>Ten San Pham</b></label> <br>
