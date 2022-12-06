@@ -106,7 +106,7 @@
         <!-- submit -->
         <?php
         if(!empty($email) && !empty($phone_number) && !empty($address) && $totalCost>0) {
-            $sql = "insert into orders (email,name,address,phone,product,total,status) values('$email','$name','$address','$phone_number','$product','$totalCost','0') ";
+            $sql = "insert into orders (email,name,address,phone,product,total,status) values('$email','$name','$address','$phone_number','$product','$totalCost','Đang Giao') ";
             execute($sql);
             }
         ?>
