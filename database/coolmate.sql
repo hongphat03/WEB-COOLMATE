@@ -57,7 +57,7 @@ INSERT INTO products (name, price, image, type, material, description) VALUES
 ('Áo Polo nam Pique Cotton USA thấm hút tối đa (kẻ sọc)','399000','https://media.coolmate.me/cdn-cgi/image/quality=80,format=auto/uploads/August2022/DSC04936-copy-1.jpg','Áo Polo','Vải Cotton','Chất liệu: 97% Cotton USA + 3% Spandex, co giãn 4 chiều Phù hợp với: đi làm, đi chơi, mặc ở nhà Kiểu dáng: áo hơi ôm eo và phù hợp với dáng nam giới Việt');
 
 CREATE TABLE products_in_cart (
-  UserId int(11) NOT NULL,
+  email varchar(50) NOT NULL,
   productId int(11) NOT NULL,
   size varchar(20) NOT NULL,
   quantity int(11) NOT NULL
@@ -65,11 +65,19 @@ CREATE TABLE products_in_cart (
 
 CREATE TABLE orders (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  email int(11) NOT NULL,
+  email varchar(50) NOT NULL,
   name varchar(255) NOT NULL,
   address varchar(255) NOT NULL,
   phone char(10) NOT NULL,
   product varchar(255) NOT NULL,
   total int(11) NOT NULL,
   status varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE ordersDetail (
+  idOrder int(11),
+  email varchar(50) NOT NULL,
+  productId int(11) NOT NULL,
+  size varchar(20) NOT NULL,
+  quantity int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

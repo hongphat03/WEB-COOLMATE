@@ -17,7 +17,7 @@
                     foreach($result as $row){
                         $UserId = $row['id'];
                     }
-                    $sql = "insert into products_in_cart (productId,size,quantity) values ('$ProductId','$size','$quantity')";
+                    $sql = "insert into products_in_cart (email,productId,size,quantity) values ('$email','$ProductId','$size','$quantity')";
                     execute($sql);
                 }
             

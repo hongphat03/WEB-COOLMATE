@@ -13,6 +13,21 @@
             execute($sql);
             header('Location: order.php');
         }
+        $total = 0;
+        $totalOrder = 0;
+        $totalDone = 0;
+        $totalCancel = 0;
+        $sql = "select * from orders";
+        $result = executeResult($sql);
+        foreach($result as $row ){
+            $totalOrder++;
+            if ($row['status'] != "Hủy Đơn")
+                $total+= $row['total'];
+            if ($row['status'] == "Đã Giao")
+                $totalDone++;
+            if ($row['status'] == "Hủy Đơn")
+                $totalCancel++;
+        } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,11 +65,12 @@
                         <td>Name</td>
                         <td>Address</td>
                         <td>Phone</td>
-                        <td>Product</td>
                         <td>Total</td>
                         <td>Status</td>
-                        <td>Đã nhận</td>
+                        <td>Đang Giao</td>
+                        <td>Đã Giao</td>
                         <td>Hủy Đơn</td>
+                        <td>Chi tiet don hang</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,29 +86,53 @@
                         <td><?php echo $row['name']?></td>
                         <td><?php echo $row['address']?></td>
                         <td><?php echo $row['phone']?></td>
-                        <td><?php echo $row['product']?></td>
                         <td><?php echo $row['total']?></td>
                         <td>
                             <?php echo $row['status']?>
                             
                         </td>
-                        <td>   
-                            
-                            <a href="order.php?OrderId=<?php echo $row['id']?>&status='Đã Nhận' ">Đã Nhận</a>
-                        </td>
-                        <td>
-                        <a href="order.php?OrderId=<?php echo $row['id']?>&status='Đã Hủy' ">Đã Hủy</a>
-                        </td>
+                        <td><a href="order.php?OrderId=<?php echo $row['id']?>&status='Hủy Đơn' ">Đang Giao</a></td>
+                        <td><a href="order.php?OrderId=<?php echo $row['id']?>&status='Đã Giao' ">Đã Giao</a></td>
+                        <td><a href="order.php?OrderId=<?php echo $row['id']?>&status='Hủy Đơn' ">Hủy Đơn</a> </td>          
+                        <td><a href="detailOrder.php?email=<?php echo $row['email'] ?>&idOrder=<?php echo $row['id'] ?>">Chi tiet</a></td>
                     </tr>
-                    <?php           
-                    if(isset($_POST['done'])){
-                        echo "hahaa";
-                    }         
+                    <?php                 
                         }
                     }
                     ?>
                 </tbody>
             </table>
+                <div>
+                    <p><b>Doanh Thu: </b> <?php echo $total;?></p>
+                    
+                </div>
+                <div>
+                    <p><b>Tổng đơn đã đặt: </b><?php echo $totalOrder; ?> </p>
+                    
+                </div>
+                <div>
+                    <p><b>Tổng đơn đã giao: </b><?php echo $totalDone;?></p>
+                    
+                </div>
+                <div>
+                    <p><b>Tổng đơn đã hủy: </b><?php echo $totalCancel;?></p>                    
+                </div>
+                <?php
+                $sql = "select * from orders where not status = 'Hủy Đơn'";
+                $result = executeResult($sql);
+                $arr = array_fill(0,1000,0);
+                foreach($result as $row){
+                    $str = $row['product'];
+                    for ($x = 0; $x < strlen($str); $x++) {
+                        $arr[$str[$x]]++;
+                    }
+                }
+                for($x = 0; $x < 20; $x++) {
+                    if($arr[$x]>0){
+                        echo $x . $arr[$x]."\n";
+                    }
+                }
+                ?>
             </div>
         </div>
     </div> 

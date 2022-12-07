@@ -1,6 +1,7 @@
 <?php
         require_once('../database/dbhelper.php');
         session_start();
+        $email = $_SESSION['email'];
         $totalCost = 0;
         $product= "";
         if(isset($_POST['deleteProductInCart'])){
@@ -10,10 +11,7 @@
         }
         if(isset($_POST['buy'])) {
             require_once('../database/dbhelper.php');
-            $name = $email = $address = $phone_number = '';
-            if(isset($_POST['email'])) {
-                $email = $_POST['email'];
-            }
+            $name = $address = $phone_number = '';
             if(isset($_POST['name'])) {
                 $name = $_POST['name'];
             }
@@ -48,7 +46,7 @@
         </thead>
         <tbody>
             <?php
-            $sql = "select * from products_in_cart";
+            $sql = "select * from products_in_cart where email = '$email'";
             $result = executeResult($sql);
             if(count($result) > 0){
                 foreach($result as $row ){
@@ -74,7 +72,11 @@
                 </td>
                 <td>
                 <?php
-                    $product .="$idProduct ";
+                        $temp = $row['quantity'];
+                        while($temp>0){
+                            $product .="$idProduct";
+                            $temp--;
+                        }
                     $totalCost += $row2['price']*$row['quantity'];
                 ?>           
                 </td>
@@ -100,15 +102,28 @@
         <!-- so dien thoai -->
         <label for="phone_number" class="form-text"><b>SDT</b> </label>    <br>
         <input type="text" name="phone_number" class="form-control">    <br>
-        <!-- email -->
-        <label for="email" class="form-text"><b>Email</b> </label>    <br>
-        <input type="email" name="email" class="form-control">    <br> 
         <!-- submit -->
         <?php
         if(!empty($email) && !empty($phone_number) && !empty($address) && $totalCost>0) {
-            $sql = "insert into orders (email,name,address,phone,product,total,status) values('$email','$name','$address','$phone_number','$product','$totalCost','Đang Giao') ";
+            $sql = "insert into orders (email,name,address,phone,product,total,status) values('$email','$name','$address','$phone_number','$product','$totalCost','Đang Chờ') ";
             execute($sql);
+            $sql = " SELECT * FROM orders;";
+            $res = executeResult($sql);
+            $id = count($res);
+            $sql = "select * from products_in_cart where email = '$email'";
+            $result = executeResult($sql);
+            if (count($result) > 0) {
+                foreach ($result as $row) {
+                    $productId = $row['productId'];
+                    $size = $row['size'];
+                    $quantity = $row['quantity'];
+                    $sql = "insert into ordersdetail(idOrder,productId,size,quantity) values('$id','$productId','$size','$quantity');";
+                    execute($sql);
+                }
             }
+            $sql = "delete from products_in_cart";
+            execute($sql);
+        }
         ?>
         <button class="btn btn-success" name="buy">Mua hang</button>
     </form>
