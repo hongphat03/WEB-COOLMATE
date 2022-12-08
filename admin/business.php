@@ -57,65 +57,152 @@
         </ul>
         <div class="col-10">
             <div class="content">
-                <div>
-                    <p>Doanh Thu</p>
-                    <?php echo $total;?>
-                </div>
-                <div>
-                    <p>Tổng đơn đã đặt</p>
-                    <?php echo $totalOrder; ?>
-                </div>
-                <div>
-                    <p>Tổng đơn đã giao</p>
-                    <?php echo $totalDone;?>
-                </div>
-                <div>
-                    <p>Tổng đơn đã hủy</p>
-                    <?php echo $totalCancel;?>
-                </div>
+                <h4>Các sản phẩm đã bán</h4>
+                <form action="" method="post">
+                    <select name="taskOption" class="form-select">
+                        <option selected>Số lượng đã bán</option>
+                        <option value="ASC">Tăng dần</option>
+                        <option value="DESC">Giảm dần</option>
+                        <!-- <input type="button" name="loc" id=""> -->
+                    </select>
+                    <input type="submit" name="submit" value="Lọc" class="btn btn-secondary" style="margin: 10px 0px;">
+                </form>
+                <?php
+                $order = "";
+                if(isset($_POST['submit']))
+                if(!empty($_POST['taskOption']))
+                    $order =  $_POST['taskOption'];
+                ?>
                 <table class="table table-hover">
-                    <thead>
+                    <thead class="table-secondary">
                         <tr>
                             <td>Id</td>
-                            <td>Email</td>
                             <td>Name</td>
-                            <td>Address</td>
-                            <td>Phone</td>
-                            <td>Product</td>
-                            <td>Total</td>
-                            <td>Status</td>
-                            <td>Đã nhận</td>
-                            <td>Hủy Đơn</td>
+                            <td>Price</td>
+                            <td>Type</td>
+                            <td>Material</td>
+                            <td>Đã bán</td>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "select * from orders";
+                        $sql = "select * from orders where not status = 'Hủy Đơn'";
                         $result = executeResult($sql);
-                        if(count($result) > 0){
-                            foreach($result as $row ){
+                        $arr = array_fill(0,1000,0);
+                        foreach($result as $row){
+                            $str = $row['product'];
+                            for ($x = 0; $x < strlen($str); $x++) {
+                                $arr[$str[$x]]++;
+                            }
+                        }
+                        $sql = "select * from products";
+                        $result = executeResult($sql);
+                        foreach ($result as $row) {
+                            $id = $row['id'];
+                            $sale = $arr[$row['id']];
+                            $sql = "UPDATE products
+                                SET sale = '$sale'
+                                WHERE id = '$id';";
+                            execute($sql);
+                        }
+                        $material = ["Vải Cotton"=>0,"Vải Excool"=>0,"Vải Polyester"=>0,"Vải Cafe"=>0,"Vải Recycle"=>0];
+                        $type = ["Áo Sơ Mi"=>0, "Áo Tank top"=>0, "Áo T-shirt"=>0, "Áo Polo"=>0];
+                        $sql = "select * from products ORDER BY sale "."$order";
+                        $result = executeResult($sql);
+                        foreach($result as $row){
+                            $type[$row['type']] += $row['sale'];
+                            $material[$row['material']] +=$row['sale'];
                         ?>
                         <tr>
                             <td><?php echo $row['id']?></td>
-                            <td><?php echo $row['email']?></td>
                             <td><?php echo $row['name']?></td>
-                            <td><?php echo $row['address']?></td>
-                            <td><?php echo $row['phone']?></td>
-                            <td><?php echo $row['product']?></td>
-                            <td><?php echo $row['total']?></td>
-                            <td>
-                                <?php echo $row['status']?>
-                                
-                            </td>
-                           
+                            <td><?php echo $row['price']?></td>
+                            <td><?php echo $row['type']?></td>
+                            <td><?php echo $row['material']?></td>
+                            <td><?php echo $arr[$row['id']]?></td>
                         </tr>
-                        <?php           
-                        if(isset($_POST['done'])){
-                            echo "hahaa";
-                        }         
-                            }
+                        <?php                           
                         }
                         ?>
+                    </tbody>
+                </table>
+                <h4>Các Loại Đã Bán</h4>
+                <form action="" method="post">
+                    <select name="typeOrder" class="form-select">
+                        <option selected>Số lượng đã bán</option>
+                        <option value="ASC">Tăng dần</option>
+                        <option value="DESC">Giảm dần</option>
+                        <!-- <input type="button" name="loc" id=""> -->
+                    </select>
+                    <input type="submit" name="submit1" value="Lọc" class="btn btn-secondary" style="margin: 10px 0px;">
+                </form>
+                <?php
+                $typeOrder = "";
+                if (isset($_POST['submit1']))
+                    if (!empty($_POST['typeOrder'])) {
+                        $typeOrder = $_POST['typeOrder'];
+                        if ($typeOrder == "ASC")
+                            asort($type);
+                        if ($typeOrder == "DESC")
+                            arsort($type);
+                    }
+                ?>    
+                <table class="table table-hover ">
+                    <thead class="table-secondary">
+                        <tr>
+                            <td>Loại áo</td>
+                            <td>Đã bán</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        foreach($type as $key => $value) {
+                         ?>
+                         <tr>
+                            <td> <?php echo $key ?></td>
+                            <td> <?php echo $value ?></td>
+                         </tr>
+                         <?php } ?>
+                    </tbody>
+                </table>
+                <h4>Các Chất Liệu Đã Bán</h4>
+                <form action="" method="post">
+                    <select name="materialOrder" class="form-select">
+                        <option selected>Số lượng đã bán</option>
+                        <option value="ASC">Tăng dần</option>
+                        <option value="DESC">Giảm dần</option>
+                        <!-- <input type="button" name="loc" id=""> -->
+                    </select>
+                    <input type="submit" name="submit2" value="Lọc" class="btn btn-secondary" style="margin: 10px 0px;">
+                </form>
+                <?php
+                $materialOrder = "";
+                if (isset($_POST['submit2']))
+                    if (!empty($_POST['materialOrder'])) {
+                        $materialOrder = $_POST['materialOrder'];
+                        if ($materialOrder == "ASC")
+                            asort($material);
+                        if ($materialOrder == "DESC")
+                            arsort($material);
+                    }
+                ?>
+                <table class="table table-hover">
+                    <thead class="table-secondary">
+                        <tr>
+                            <td>Chất liệu</td>
+                            <td>Đã bán</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <?php
+                        foreach($material as $key => $value) {
+                         ?>
+                         <tr>
+                            <td> <?php echo $key ?></td>
+                            <td> <?php echo $value ?></td>
+                         </tr>
+                         <?php } ?>
                     </tbody>
                 </table>
             </div>
