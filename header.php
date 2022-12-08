@@ -10,6 +10,6 @@
         </div>
         <div class="pdr col-third">
         <a class="" href="user/login.php"> <i class="ti-user"></i> Đăng nhập</a>
-        <a href="user/product_in_cart.php"> <i class="ti-shopping-cart"></i> Giỏ hàng</a>
+        <a href="user/register.php"> <i class="ti-key"></i> Đăng kí</a>
         </div>
 </div>
