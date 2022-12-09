@@ -14,7 +14,7 @@
         
             $sql = "insert into products (name,price,image,type,material,description) values('$name','$price','$img','$type','$material','$description')";
             execute($sql);
-            header('Location: view-product.php');
+            header('Location: product.php');
         }
     }
 

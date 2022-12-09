@@ -1,0 +1,23 @@
+body{
+    background-color: rgba(226, 226, 226,0.3);
+    height: 100%;
+}
+html{
+    height: 100%;
+}
+.nav-list{
+    display: flex;
+    height: 100%;
+}
+.list-group{
+    background-color: #F8F9FA;
+}
+.list-group-item{
+    padding: 20px 10px;
+}
+li.list-group-item :hover {
+    color:blue;
+}
+.content{
+    margin: 10px 20px;  
+}

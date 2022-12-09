@@ -26,7 +26,7 @@
             WHERE id = '$id';
             ";
             execute($sql);
-            header('Location: view-product.php');
+            header('Location: product.php');
         }
     }
 

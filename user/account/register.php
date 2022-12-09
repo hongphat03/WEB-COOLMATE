@@ -13,16 +13,17 @@
         if(isset($_POST['email'])){
             $email = $_POST['email'];
         }
+        if(isset($_POST['address'])){
+            $address = $_POST['address'];
+        }
         if(isset($_POST['password'])){
             $password = $_POST['password'];
         }
         if(isset($_POST['password2'])){
             $password2 = $_POST['password2'];
         }
-            $sql = "insert into members (username,phone_number,email,password) values('$name','$phone','$email','$password')";
+            $sql = "insert into members (username,phone_number,email,password,address) values('$name','$phone','$email','$password','$address')";
             execute($sql);
-            $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in";
             header('location: login.php');
         
     }
@@ -54,7 +55,9 @@
         <!-- email -->
         <label for="email" class="form-text"><b>Email</b> </label>    <br>
         <input type="text" name="email" class="form-control">    <br>
-    
+        <!-- address -->
+        <label for="address" class="form-text"><b>Địa chỉ</b> </label>    <br>
+        <input type="text" name="address" class="form-control">    <br>
         <!-- password -->
         <label for="password" class="form-text"><b>Password</b></label> <br>
         <input type="password" name="password" class="form-control"> <br>

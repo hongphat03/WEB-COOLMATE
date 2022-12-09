@@ -9,7 +9,14 @@
         <a href="" class="">Chọn Size</a>
         </div>
         <div class="pdr col-third">
-        <a class="" href="user/login.php"> <i class="ti-user"></i> Đăng nhập</a>
+            
+        <?php 
+        session_start();
+        if(isset($_SESSION['email'])){ ?>
+        <a class="" href="user/account/info.php"> <i class="ti-user"></i></a>
+        <?php } else{ ?>
+        <a class="" href="user/account/login.php"> <i class="ti-user"></i> Đăng nhập</a>
+        <?php } ?>
         <a href="user/product_in_cart.php"> <i class="ti-shopping-cart"></i> Giỏ hàng</a>
         </div>
 </div>

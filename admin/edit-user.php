@@ -2,6 +2,7 @@
 <?php 
     session_start();
     require_once('../database/dbhelper.php'); 
+    if(isset($_GET['id']))
     $id = $_GET['id'];
     if(!empty($_POST)) {
         $name = $phone_number = $email = "";

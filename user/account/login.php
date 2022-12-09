@@ -2,7 +2,7 @@
 	session_start();
 	
 	if(!empty($_POST)) {
-		require_once('../database/dbhelper.php');
+		require_once('../../database/dbhelper.php');
 		$email = $password = '';
 		if(isset($_POST['email'])) {
 			$email = $_POST['email'];
@@ -23,7 +23,7 @@
 			if($result != null && count($result) > 0) {
 				//login success
 				$_SESSION['email'] = $email;
-				header('Location: ../index.php');
+				header('Location: ../../index.php');
 				die();
 			}
 		}

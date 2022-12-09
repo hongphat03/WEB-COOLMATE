@@ -27,6 +27,7 @@ CREATE TABLE members (
     username varchar(20) NOT NULL,
     phone_number varchar(20) NOT NULL,
     email varchar(50) NOT NULL,
+    address varchar(255) NOT NULL,
     password varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -35,7 +36,8 @@ CREATE TABLE feedback (
     username varchar(20) NOT NULL,
     phone_number varchar(20) NOT NULL,
     email varchar(20) NOT NULL,
-    content varchar(500) NOT NULL
+    content varchar(500) NOT NULL,
+    status varchar(20) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE products (

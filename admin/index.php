@@ -17,13 +17,12 @@
 <body>
     <div class="nav-list">
         <ul class="list-group col-2">
-            <li class="list-group-item"><a href="./members.php" class="">Quan ly thanh vien</a></li>
-            <li class="list-group-item"><a href="./feedback.php" class="">Quan ly feedback</a></li>
-            <li class="list-group-item"><a href="./contact.php" class="">Quan ly thong tin khach hang</a></li>
-            <li class="list-group-item"><a href="./admins.php" class="">Danh sach Admin</a></li>
-            <li class="list-group-item"><a href="./view-product.php" class="">Quan ly san pham</a></li>
-            <li class="list-group-item"><a href="./order.php" class="">Quan ly don hang</a></li>
-            <li class="list-group-item"><a href="./business.php" class="">Quan ly kinh doanh</a></li>
+            <li class="list-group-item bg-light bg-gradient"><a href="./members.php" class="">Quản lý thành viên</a></li>
+            <li class="list-group-item bg-light bg-gradient"><a href="./feedback.php" class="">Quản lý phản hồi</a></li>
+            <li class="list-group-item bg-light bg-gradient"><a href="./admins.php" class="">Quản lý admin</a></li>
+            <li class="list-group-item bg-light bg-gradient"><a href="./product.php" class="">Quản lý sản phẩm</a></li>
+            <li class="list-group-item bg-light bg-gradient"><a href="./order.php" class="">Quản lý đơn hàng</a></li>
+            <li class="list-group-item bg-light bg-gradient"><a href="./business.php" class="">Quản lý kinh doanh</a></li>
         </ul>
     </div>
 </body>

@@ -8,7 +8,7 @@
             $username = $_POST['name'];
             $phone_number = $_POST['phone_number'];
             $content = $_POST['content'];
-            $sql = "insert into feedback (username,phone_number,email,content) values('$username','$phone_number','$email','$content') ";
+            $sql = "insert into feedback (username,phone_number,email,content,status) values('$username','$phone_number','$email','$content','Chưa Phản Hồi') ";
             execute($sql);
         }
     }
