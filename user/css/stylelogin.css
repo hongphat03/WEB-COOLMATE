@@ -1,0 +1,61 @@
+body{
+    background-image: url(https://channel.mediacdn.vn/2019/6/19/photo-3-15609334301281057169072.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.screenLogin{
+    width: 600px;
+    height: 320px;
+    background-color: white;
+    border-radius: 15px;
+    transform: translate(80%,50%);
+}
+.screenRegister{
+    width: 600px;
+    height: 445px;
+    background-color: white;
+    border-radius: 15px;
+    transform: translate(80%,30%);
+}
+.centerScreen{
+    padding: 32px;
+    position: relative;
+}
+.formControl{
+    background: #fff;
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    padding: 5px 20px;
+}
+.title{
+    text-align: center;
+    height: 50px;
+    font-size: 30px;
+    font-weight: 700;
+}
+.btnlogin{
+    color: white;
+    background-color: black;
+    border-radius: 15px;
+    padding: 10px 0px;
+    width: 100%;}
+.btnlogin:hover{
+    background-color: #d9d9d9;
+    border: solid #d9d9d9;
+    color: black;
+}
+.centerScreen a{
+    text-decoration: none;
+}
+.btnRegister{
+    background-color: white;
+    color: blue;
+    border-radius: 15px;
+    position: absolute;
+    bottom: -20px;
+}
+.btnRegister:hover{
+    color: black;
+}
