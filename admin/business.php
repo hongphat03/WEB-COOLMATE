@@ -90,8 +90,10 @@
                         $arr = array_fill(0,1000,0);
                         foreach($result as $row){
                             $str = $row['product'];
-                            for ($x = 0; $x < strlen($str); $x++) {
-                                $arr[$str[$x]]++;
+                            $newStr = explode(' ',$str);                        
+                            for ($x = 0; $x < count($newStr); $x++) {
+                                if(strlen($newStr[$x])>0)
+                                $arr[$newStr[$x]]++;
                             }
                         }
                         $sql = "select * from products";

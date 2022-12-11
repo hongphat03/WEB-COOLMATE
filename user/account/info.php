@@ -1,6 +1,6 @@
 
-<?php 
-    session_start();
+<?php
+    include('../../header.php');
     require_once('../../database/dbhelper.php');
     $email = $_SESSION['email'];
     // if(isset($_GET['id']))
@@ -23,6 +23,18 @@
             execute($sql);
             header('Location: info.php');
         }
+        if(isset($_POST['oldPassword']) && isset($_POST['newPassword']) &&  isset($_POST['newPassword2'])){
+        $oldPassword = $_POST['oldPassword'];
+        $sql = "select * from members where password = '$oldPassword' and email = '$email'";
+        $result = executeResult($sql);
+            if(count($result) > 0){
+                if($_POST['newPassword'] == $_POST['newPassword2']){
+                    $newPassword = $_POST['newPassword'];
+                    $sql = "update members set password = '$newPassword' where email ='$email'";
+                    execute($sql);
+                }
+            }
+        }
     }
     if(isset($_GET['logout'])){
         session_destroy();
@@ -38,20 +50,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../../assets/styleheader.css">
+    <link rel="stylesheet" href="../../assets/stylefooter.css">
     <style>
-        a{
-        text-decoration: none;
-        }
+        
     </style>
 </head>
 <body>
     <div class="nav-list">
-        <ul class="list-group col-2">
-            <li class="list-group-item bg-light bg-gradient active"><a href="./info.php" class="">Thông tin cá nhân </a></li>
-            <li class="list-group-item bg-light bg-gradient"><a href="./order.php" class="">Danh sách đơn hàng</a></li>
-            <li class="list-group-item bg-light bg-gradient"><a href="../feedback.php" class="">Gửi ý kiến</a></li>
-            <li class="list-group-item bg-light bg-gradient"><a href="./order.php?logout=true" class="">Thoát</a></li>
+        <ul class="col-2">
+            <li class="active"><a href="./info.php" class="">Thông tin cá nhân </a></li>
+            <li class=""><a href="./order.php" class="">Danh sách đơn hàng</a></li>
+            <li class=""><a href="./feedback.php" class="">Gửi ý kiến</a></li>
+            <li class=""><a href="./order.php?logout=true" class="">Thoát</a></li>
         </ul>
+        <div class="vr"></div> 
         <div class="col-10">
             <div class="content">     
                 <?php
@@ -74,6 +87,16 @@
                     <label for="address" class="form-text"><b>Địa chỉ</b> </label>    <br>
                     <input type="text" name="address" class="form-control" value="<?php echo $row['address']?>">    <br>
                     
+                    <!-- oldPassword -->
+                    <label for="oldPassword" class="form-text"><b>Nhập mật khẩu cũ</b></label>
+                    <input type="password"  name="oldPassword" class="formControl form-control" placeholder="Mật khẩu"> <br>
+                    <!-- password -->
+                    <label for="newPassword" class="form-text"><b>Nhập mật khẩu mới</b></label>
+                    <input type="password" name="newPassword" class="formControl form-control" placeholder="Mật khẩu"> <br>
+                    <!-- nhap lai password  -->
+                    <label for="newPassword2" class="form-text"><b>Nhập mật khẩu mới</b></label>
+                    <input type="password" name="newPassword2" class="formControl form-control" placeholder="Nhập lại mật khẩu"> <br>
+
                     <button class="btn btn-success" >Cập nhật</button>
                 </form>
                 <?php
@@ -83,6 +106,9 @@
             </div>
         </div>
     </div>
+    <?php 
+    include('../../footer.php');
+    ?>
 </body>
 <script src="main.js"></script>
 </html> 

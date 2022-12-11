@@ -1,10 +1,6 @@
 <?php
         require_once('../database/dbhelper.php');
         session_start();
-        // if(empty($_SESSION['email'])){
-        // header('Location: ../user/login.php');
-        // }
-        // else{
             $email = "";
             if(!empty($_SESSION['email'])){
                 $email = $_SESSION['email'];
@@ -17,22 +13,26 @@
                 execute($sql);
             }
             if(isset($_POST['buy'])) {
-                require_once('../database/dbhelper.php');
                 $name = $address = $phone_number = '';
-                if(isset($_POST['name'])) {
-                    $name = $_POST['name'];
+                if(empty($_SESSION['email'])){
+                    if (isset($_POST['name']) && isset($_POST['phone_number']) && isset($_POST['email']) && isset($_POST['address'])) {
+                        $name = $_POST['name'];
+                        $address = $_POST['address'];
+                        $phone_number = $_POST['phone_number'];
+                        $email = $_POST['email'];
+                        $sql = "update products_in_cart set email = '$email'";
+                        execute($sql);
+                    }   
                 }
-                if(isset($_POST['address'])) {
-                    $address = $_POST['address'];
-                }
-                if(isset($_POST['phone_number'])) {
-                    $phone_number = $_POST['phone_number'];
-                }
-                if(isset($_POST['email']) && empty($_SESSION['email'])) {
-                    $email = $_POST['email'];
-                    $sql = "update products_in_cart set email = '$email'";
-                    execute($sql);
-                }    
+                else{
+                    $sql = "select * from members where email='$email'";
+                    $result = executeResult($sql);
+                    foreach($result as $row){
+                        $name = $row['username'];
+                        $address = $row['address'];
+                        $phone_number = $row['phone_number'];
+                    }
+                } 
             }    
         // }              
 ?>
@@ -86,7 +86,7 @@
                 <?php
                         $temp = $row['quantity'];
                         while($temp>0){
-                            $product .="$idProduct";
+                            $product .="$idProduct ";
                             $temp--;
                         }
                     $totalCost += $row2['price']*$row['quantity'];
@@ -104,7 +104,8 @@
 
     <div class="container p-5 my-5 border">
    
-    <form method="post">       
+    <form method="post">    
+        <?php if(empty($_SESSION['email'])){ ?>   
          <!-- dia chi -->
         <label for="name" class="form-text"><b>Ho va Ten</b> </label>    <br>
         <input type="text" name="name" class="form-control">    <br>
@@ -117,31 +118,43 @@
 
         <label for="email" class="form-text"><b>Email</b> </label>    <br>
         <input type="text" name="email" class="form-control">    <br>
+        <?php } ?>
         <!-- submit -->
         <button class="btn btn-success" name="buy">Mua hang</button>
         </form>
         <?php
+       
         
-        if(!empty($email) && !empty($phone_number) && !empty($address) && $totalCost>0) {
-            echo "aa";
-            $sql = "insert into orders (email,name,address,phone,product,total,status) values('$email','$name','$address','$phone_number','$product','$totalCost','Đang Chờ') ";
-            execute($sql);
-            $sql = " SELECT * FROM orders;";
-            $res = executeResult($sql);
-            $id = count($res);
-            $sql = "select * from products_in_cart where email = '$email'";
-            $result = executeResult($sql);
-            if (count($result) > 0) {
-                foreach ($result as $row) {
-                    $productId = $row['productId'];
-                    $size = $row['size'];
-                    $quantity = $row['quantity'];
-                    $sql = "insert into ordersdetail(idOrder,productId,size,quantity) values('$id','$productId','$size','$quantity');";
-                    execute($sql);
-                }
+        if(!empty($name) && !empty($email) && !empty($phone_number) && !empty($address) && $totalCost>0) {
+            $complete = true;
+            if(strlen($name) <= 0 || strlen($phone_number) <= 0 || strlen($address) <= 0) {
+                $complete = false;
             }
-            $sql = "delete from products_in_cart";
-            execute($sql);
+            // Email
+            $check = preg_match("/^.*@.*\..*/i", $email);
+            if($check == 0) {
+                $complete = false;
+            }
+            if($complete){
+                $sql = "insert into orders (email,name,address,phone,product,total,status) values('$email','$name','$address','$phone_number','$product','$totalCost','Đang Chờ') ";
+                execute($sql);
+                $sql = " SELECT * FROM orders;";
+                $res = executeResult($sql);
+                $id = count($res);
+                $sql = "select * from products_in_cart where email = '$email'";
+                $result = executeResult($sql);
+                if (count($result) > 0) {
+                    foreach ($result as $row) {
+                        $productId = $row['productId'];
+                        $size = $row['size'];
+                        $quantity = $row['quantity'];
+                        $sql = "insert into ordersdetail(idOrder,productId,size,quantity) values('$id','$productId','$size','$quantity');";
+                        execute($sql);
+                    }
+                }
+                $sql = "delete from products_in_cart";
+                execute($sql);
+            }           
         }
         ?>
         

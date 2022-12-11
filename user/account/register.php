@@ -1,36 +1,47 @@
 
 <?php 
     session_start();
-    require_once('../../database/dbhelper.php'); 
-    if(!empty($_POST)) {
+    require_once('../../database/dbhelper.php');
+    $error["email"] = "";
+    if(isset($_POST['submit'])) {
         $name = $phone = $email = $password = $password2 = "";
-        if(isset($_POST['name'])){
+        if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['address']) && isset($_POST['password']) && isset($_POST['password2']) && $_POST['password2'] == $_POST['password']) {
             $name = $_POST['name'];
-        }
-        if(isset($_POST['phone'])){
             $phone = $_POST['phone'];
-        }
-        if(isset($_POST['email'])){
             $email = $_POST['email'];
-        }
-        if(isset($_POST['address'])){
             $address = $_POST['address'];
-        }
-        if(isset($_POST['password'])){
             $password = $_POST['password'];
-        }
-        if(isset($_POST['password2'])){
             $password2 = $_POST['password2'];
+            $complete = true; 
+            if(strlen($name) <= 0 || strlen($phone) <= 0 || strlen($address) <= 0) {
+                $complete = false;
+            }
+            // Email
+            $check = preg_match("/^.*@.*\..*/i", $email);
+            if($check == 0) {
+                $complete = false;
+            }
+            // Password
+            if(strlen($password) < 8 || strlen($password) > 30 || $password != $password2) {
+                $complete = false;
+            }
+            $sql = "select * from members where email = '$email'";
+            $result = executeResult($sql);
+            if(count($result) > 0){
+                $error["email"] = "Email Already Exits";
+                $complete = false;
+            }
+            if($complete){
+                $sql = "insert into members (username,phone_number,email,password,address) values('$name','$phone','$email','$password','$address')";
+                execute($sql);
+                header('location: login.php');
+            }       
         }
-            $sql = "insert into members (username,phone_number,email,password,address) values('$name','$phone','$email','$password','$address')";
-            execute($sql);
-            header('location: login.php');
-        
     }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,21 +55,26 @@
     <div class="screenRegister">
             <div class="centerScreen">
                 <div class="title">Đăng ký tài khoản</div>
-                <form method="post">       
+                <form method="post" id="RegForm" action="register.php">       
                     <!-- name  -->
-                    <input type="text" name="name" class="formControl" placeholder="Tên của bạn"> <br>
-                    <input type="text" name="phone" class="formControl" placeholder="SĐT của bạn"> <br>
+                    <input type="text" name="name" class="formControl" placeholder="Tên của bạn"> 
+                    <input type="text" name="phone" class="formControl" placeholder="SĐT của bạn"> 
                     <!-- email -->
-                    <input type="text" name="email" class="formControl" placeholder="Email của bạn">    <br>
+                    <input type="email" id="email" name="email" class="formControl" placeholder="Email của bạn">   
+                    <?php if(strlen($error["email"]>0)) echo $error['email']; ?> 
+                    <!-- address -->
+                    <input type="text" name="address" class="formControl" placeholder="Địa chỉ">    
                     <!-- password -->
-                    <input type="password" name="password" class="formControl" placeholder="Mật khẩu"> <br>
+                    <input type="password" id = "password" name="password" class="formControl" placeholder="Mật khẩu"> 
                     <!-- nhap lai password  -->
-                    <input type="password" name="password2" class="formControl" placeholder="Nhập lại mật khẩu"> <br>
+                    <input type="password" id="password2" name="password2" class="formControl" placeholder="Nhập lại mật khẩu"> 
                     <!-- submit -->
-                    <button class="btnlogin" >Đăng kí</button>
+                    <input type="submit" class="btnlogin" value="Đăng ký" name="submit">
                 </form>
             </div>
         </div>
 </body>
-<script src="main.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../../public/validation.js" type="text/javascript"></script>
 </html> 

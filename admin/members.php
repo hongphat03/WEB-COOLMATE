@@ -9,6 +9,7 @@
             execute($sql);
             $sql = "ALTER TABLE members AUTO_INCREMENT=1";
             execute($sql);
+            unset($_SESSION['email']);
         }
        
 ?>

@@ -21,3 +21,16 @@ li.list-group-item :hover {
 .content{
     margin: 10px 20px;  
 }
+.col-2{
+    padding-left: 0px;
+}
+a{
+    text-decoration: none;
+}
+li{
+    padding: 10px;
+    list-style: none;
+    border-radius: 16px;
+    margin: 20px 8px;
+    border: 1px solid blue;
+}

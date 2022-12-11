@@ -69,7 +69,7 @@
         <input type="text" name="material" class="form-control" value="<?php echo $row['material']?>"> <br>
         <!-- description -->
         <label for="description" class="form-text"><b>Mo ta</b></label> <br>
-        <input type="text" name="description" class="form-control" value="<?php echo $row['description']?>"> <br>
+        <textarea type="text" name="description" class="form-control"><?php echo $row['description']?> </ <br>
  
         <button class="btn btn-success" >Cap nhat</button>
     </form>

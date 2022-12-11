@@ -4,7 +4,7 @@
             <img src="https://www.coolmate.me/images/logo-coolmate-white.svg" width="95px" height="76px" alt="Logo_coolmate">
             </a></div>
         <div class="col-third">
-        <a href="./product/products.php"> Sản phẩm</a>
+        <a href="http://localhost/COOLMATE/product/products.php"> Sản phẩm</a>
         <a href="" class="">Về Coolmate</a>
         <a href="" class="">Chọn Size</a>
         </div>
@@ -13,10 +13,10 @@
         <?php 
         session_start();
         if(isset($_SESSION['email'])){ ?>
-        <a class="" href="user/account/info.php"> <i class="ti-user"></i></a>
+        <a class="" href="http://localhost/COOLMATE/user/account/info.php"> <i class="ti-user"></i></a>
         <?php } else{ ?>
-        <a class="" href="user/account/login.php"> <i class="ti-user"></i> Đăng nhập</a>
+        <a class="" href="http://localhost/COOLMATE/user/account/login.php"> <i class="ti-user"></i> Đăng nhập</a>
         <?php } ?>
-        <a href="user/product_in_cart.php"> <i class="ti-shopping-cart"></i> Giỏ hàng</a>
+        <a href="http://localhost/COOLMATE/user/product_in_cart.php"> <i class="ti-shopping-cart"></i> Giỏ hàng</a>
         </div>
 </div>
