@@ -1,0 +1,33 @@
+/* Layout */
+.left-cart{
+    width: 100%;
+    /* border: 1px solid black; */
+}
+.right-cart{
+    width: 100%;
+    /* border: 1px solid black; */
+}
+
+/* Product */
+.items{
+    display: block;
+    margin: 10px 0px;
+    border: 1px solid black;
+}
+.image-product{
+    border-radius: 16px;
+}
+.size-product, .quantity-product{
+    margin: 10px 0px;
+    padding: 5px 5px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.right-item{
+    position: relative;
+}
+.size-product{
+    position: relative;
+    right: 0;
+}

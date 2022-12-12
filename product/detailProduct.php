@@ -3,11 +3,14 @@
         session_start();
         $ProductId = $_GET['ProductId'];
         if(isset($_POST['add'])){
-                if(empty($_SESSION['email'])){
-                header('Location: ../user/login.php');
-                }
-                else{
-                    $email = $_SESSION['email'];
+                // if(empty($_SESSION['email'])){
+                // header('Location: ../user/login.php');
+                // }
+                // else{
+                    $email = "";
+                    if(!empty($_SESSION['email'])){
+                        $email = $_SESSION['email'];
+                    }
                     $sql = "select id from members where email='$email'";
                     $result = execute($sql);
                     $UserId;
@@ -17,11 +20,11 @@
                     foreach($result as $row){
                         $UserId = $row['id'];
                     }
-                    $sql = "insert into products_in_cart (productId,size,quantity) values ('$ProductId','$size','$quantity')";
+                    $sql = "insert into products_in_cart (email,productId,size,quantity) values ('$email','$ProductId','$size','$quantity')";
                     execute($sql);
                 }
             
-        }
+        // }
 ?>
 <div>
     <form method="post" action="">
