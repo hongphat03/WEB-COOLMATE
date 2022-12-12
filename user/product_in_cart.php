@@ -48,31 +48,138 @@
 </head>
 <body>
     <!-- Begin Header -->
-
     <!-- End Header -->
     <!-- Begin Container -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="right-cart">
+                    <div class="title"><h2>Giỏ hàng</h2></div>
+                        <!-- Begin table -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Image</td>
+                                    <td>Name</td>
+                                    <td>Price</td>
+                                    <td>Type</td>
+                                    <td>Size</td>
+                                    <td>Số lượng</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $sql = "select * from products_in_cart where email = '$email'";
+                                $result = executeResult($sql);
+                                if(count($result) > 0){
+                                    foreach($result as $row ){
+                                        
+                                        $idProduct = $row['productId'];
+                                        $sql2 = "select * from products where id = '$idProduct'";
+                                        $result2 = executeResult($sql2);
+                                        foreach($result2 as $row2 ){
+                                ?>
+                                <tr>
+                                    <!-- Begin product -->
+                                        <td>
+                                            <div class="image-product">
+                                                <img class="image-product" src="<?php echo $row2['image']?>" alt="" width="100px">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="name-product">
+                                                <?php echo $row2['name']?>
+                                            </div>
+                                        </td>
+                                        <td><?php echo $row2['price']?></td>
+                                        <td>
+                                            <div class="type-product">
+                                                <?php echo $row2['type']?>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="size-product">
+                                                <?php echo $row['size']?>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="quantity-product">
+                                                <?php echo $row['quantity']?>
+                                            </div>
+                                        </td>
+                                        <td>
+                                        <form action="" method="post">
+                                            <button class="btn btn-danger" name="deleteProductInCart" value="<?php echo $idProduct?>">Xoá</button>
+                                        </form>
+                                        </td>
+                                        <td>
+                                        
+                                        <?php
+                                                $temp = $row['quantity'];
+                                                while($temp>0){
+                                                    $product .="$idProduct";
+                                                    $temp--;
+                                                }
+                                            $totalCost += $row2['price']*$row['quantity'];
+                                        ?>           
+                                        </td>
+                                    <!-- End product -->
+                                </tr> 
+                                <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="2">Tổng</td>
+                                <td><?php echo $totalCost ?></td>
+                            </tfoot>
+                        </table>
+                    <div class="btn-addproduct">
+                        <a class="btn btn-success" href="../product/products.php">Mua thêm sản phẩm</a>
+                    </div>
+                </div>
+            </div>
+                        <!-- End table -->
+                         <!-- Begin form -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="left-cart">
                 <div class="title"><h2>Thông tin vận chuyển</h2></div>
-                        <!-- Begin form -->
-                        <form method="post">       
+                <!-- Begin form -->
+                <form method="post">   
+                <div class="form-container">
+                <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="" placeholder="Họ tên" name="name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="" placeholder="Số điện thoại" name="phone_number">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- email -->
+                        <input type="mail" class="form-control" id="" placeholder="Email" name="mail"> <br>
+                        <!-- Địa chỉ -->
+                        <input type="text" class="form-control" id="" placeholder="Địa chỉ (ví dụ: 103 Vạn Phúc, phường Vạn Phúc)" name="address"> <br>
+                        <!-- <form method="post">        -->
                         <!-- dia chi -->
-                        <label for="name" class="form-text"><b>Họ và Tên</b> </label>    <br>
-                        <input type="text" name="name" class="form-control">    <br>
+                        <!-- <label for="name" class="form-text"><b>Họ và Tên</b> </label>    <br>
+                        <input type="text" name="name" class="form-control">    <br> -->
                         <!-- dia chi -->
-                        <label for="address" class="form-text" ><b>Địa chỉ</b> </label>    <br>
-                        <input type="text" name="address" class="form-control"  placeholder="ví dụ: 103 Vạn Phúc, phường Vạn Phúc">    <br>
+                        <!-- <label for="address" class="form-text" ><b>Địa chỉ</b> </label>    <br>
+                        <input type="text" name="address" class="form-control"  placeholder="ví dụ: 103 Vạn Phúc, phường Vạn Phúc">    <br> -->
                         <!-- so dien thoai -->
-                        <label for="phone_number" class="form-text"><b>Số điện thoại</b> </label>    <br>
-                        <input type="text" name="phone_number" class="form-control">    <br>
+                        <!-- <label for="phone_number" class="form-text"><b>Số điện thoại</b> </label>    <br>
+                        <input type="text" name="phone_number" class="form-control">    <br> -->
 
-                        <label for="email" class="form-text"><b>Email</b> </label>    <br>
-                        <input type="text" name="email" class="form-control">    <br>
+                        <!-- <label for="email" class="form-text"><b>Email</b> </label>    <br>
+                        <input type="text" name="email" class="form-control">    <br> -->
                         <!-- submit -->
-                        <button class="btn btn-success" name="buy">Mua hàng</button>
+                        <button class="btn btn-success" name="buy">Đặt hàng</button>
                         </form>
+                    </div>
+                    <!-- end form -->
                         <?php
                         
                         if(!empty($email) && !empty($phone_number) && !empty($address) && $totalCost>0) {
@@ -100,92 +207,6 @@
                 </div>
             </div>
                         <!-- End form -->
-            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="right-cart">
-                    <div class="title"><h2>Giỏ hàng</h2></div>
-                        <!-- Begin table -->
-                        <table>
-                            <thead>
-                                
-                                <tr>
-                                
-                                    <td>Image</td>
-                                    <td>Name</td>
-                                    <td>Price</td>
-                                    <td>Type</td>
-                                    <td>Size</td>
-                                    <td>So Luong</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $sql = "select * from products_in_cart where email = '$email'";
-                                $result = executeResult($sql);
-                                if(count($result) > 0){
-                                    foreach($result as $row ){
-                                        
-                                        $idProduct = $row['productId'];
-                                        $sql2 = "select * from products where id = '$idProduct'";
-                                        $result2 = executeResult($sql2);
-                                        foreach($result2 as $row2 ){
-                                ?>
-                                <tr>
-                                    <!-- Begin product -->
-                                        
-                                        <td>
-                                            <div>
-                                                <img class="image-product" src="<?php echo $row2['image']?>" alt="" width="100px">
-                                            </div>
-                                        </td>
-                                        <div class="right-item">
-                                        <td><?php echo $row2['name']?></td>
-                                        <td><?php echo $row2['price']?></td>
-                                        <td>
-                                            <div class="type-product">
-                                                <?php echo $row2['type']?>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="size-product">
-                                                <?php echo $row['size']?>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="quantity-product">
-                                                <?php echo $row['quantity']?>
-                                            </div>
-                                        </td>
-                                        </div>
-                                        <td>
-                                        <form action="" method="post">
-                                            <button class="btn btn-danger" name="deleteProductInCart" value="<?php echo $idProduct?>">Xoá</button>
-                                        </form>
-                                        </td>
-                                        <td>
-                                        
-                                        <?php
-                                                $temp = $row['quantity'];
-                                                while($temp>0){
-                                                    $product .="$idProduct";
-                                                    $temp--;
-                                                }
-                                            $totalCost += $row2['price']*$row['quantity'];
-                                        ?>           
-                                        </td>
-                                     
-                                    <!-- End product -->
-                                </tr> 
-                                <?php
-                                        }
-                                    }
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    <div><a class="btn btn-success" href="../product/products.php">Mua thêm sản phẩm</a></div>
-                </div>
-            </div>
-                        <!-- End table -->
         </div>
     </div>
     <!-- End Container -->
