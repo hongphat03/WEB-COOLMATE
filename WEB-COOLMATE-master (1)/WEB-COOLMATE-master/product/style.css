@@ -148,7 +148,7 @@
   margin-left:35px;
   margin-top: -15px;
   font-size: 1.4rem;
-  border-radius: 60%;
+  border-radius: 50%;
   border: solid white;
   line-height: 1.4rem;
   color: white;
@@ -258,4 +258,6 @@ justify-content: space-between;
   padding-left: 0px;
   padding-right: 0px;
 }
+
+
 

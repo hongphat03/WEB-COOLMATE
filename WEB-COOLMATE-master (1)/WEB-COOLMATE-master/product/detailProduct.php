@@ -10,13 +10,85 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../assets/styleheader.css">
     <link rel="stylesheet" href="../assets/stylefooter.css">
     <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../assets/stylemain.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .row {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px}
+        .row>* { 
+            padding-left: 0;  
+        }
+        ol,ul,dl {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            padding-left: 0px;
+        }
+
+        .customer-reviews {
+            font-size: 1.5rem;
+        }
+
+        .comment-item b {
+
+            font-size: 1.5rem;
+            font-weight: 400;
+
+        }
+
+        .comment-item-user {
+            align-items: center;
+            display: flex;
+        }
+
+        .comment-item-user-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+
+        .comment-item-user li b {
+            margin: 10px;
+        }
+
+        .comment-item li {
+            list-style: none;
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-size: 1.5rem;
+            color: #666;
+            line-height: 2.2rem;
+
+        }
+
+        .comment-item h4 {
+            font-size: 1.5rem;
+            color: #666;
+            line-height: 2.2rem;
+            word-spacing: 0.1rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+
+        }
+
+        .customer-reviews {
+            font-size: 1.5rem;
+        }
+        .btn{
+            border-radius:20px ;
+        }
+        .btn-secondary{
+            border-radius:20px ;
+            background-color: #c4c4c4;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,6 +105,7 @@ session_start();
         if (empty($_SESSION['email'])) {
             header('Location: ../user/login.php');
         } else {
+        
             $email = $_SESSION['email'];
             $sql = "select id from members where email='$email'";
             $result = execute($sql);
@@ -241,36 +314,37 @@ session_start();
                         <?php }endforeach ?>
 
                         <div>
-                            <h5 style="margin-top: 10px;"> Kích thước Áo: <span class="example">Chưa chọn size</span> </h5>
+                            <h5 style="margin-top: 10px;"> Kích thước Áo: <span class="example">S</span>
+                            </h5>
                             <form method="post" action="">
                                 <input type="hidden" name="ProductId" value="<?php echo $ProductId ?>">
-                                <input value="S" onclick="updateSize(id)" type="radio" class="btn-check "
-                                    name="size" id="0" autocomplete="off">
-                                <label class="btn btn-secondary btn-outline-dark me-2 button btn-lg"
-                                    for="0">S</label>
+                                <input value="S" onclick="updateSize(id)" type="radio" class="btn-check " name="size"
+                                    id="0" autocomplete="off" checked>
+                                <label class="btn btn-secondary btn-outline-dark me-4 button btn-lg" for="0">S</label>
                                 <input value="M" onclick="updateSize(id)" type="radio" class="btn-check" name="size"
                                     id="1" autocomplete="off">
-                                <label class="btn btn-secondary btn-outline-dark me-2 button btn-lg"
-                                    for="1">M</label>
+                                <label class="btn btn-secondary btn-outline-dark me-4 button btn-lg" for="1">M</label>
                                 <input value="L" onclick="updateSize(id)" type="radio" class="btn-check" name="size"
                                     id="2" autocomplete="off">
-                                <label class="btn btn-secondary btn-outline-dark me-2 button btn-lg"
-                                    for="2">L</label>
-                                <input value="XL" onclick="updateSize(id)" type="radio" class="btn-check"
-                                    name="size" id="3" autocomplete="off">
-                                <label class="btn btn-secondary btn-outline-dark me-2 button btn-lg"
-                                    for="3">XL</label>
-                                <input value="XXL" onclick="updateSize(id)" type="radio" class="btn-check"
-                                    name="size" id="4" autocomplete="off">
-                                <label class="btn btn-secondary btn-outline-dark me-2 button  btn-lg"
-                                    for="4">XXL</label>
+                                <label class="btn btn-secondary btn-outline-dark me-4 button btn-lg" for="2">L</label>
+                                <input value="XL" onclick="updateSize(id)" type="radio" class="btn-check" name="size"
+                                    id="3" autocomplete="off">
+                                <label class="btn btn-secondary btn-outline-dark me-4 button btn-lg" for="3">XL</label>
+                                <input value="2XL" onclick="updateSize(id)" type="radio" class="btn-check" name="size"
+                                    id="4" autocomplete="off">
+                                <label class="btn btn-secondary btn-outline-dark me-4 button  btn-lg"
+                                    for="4">2XL</label>
+                                <input value="3XL" onclick="updateSize(id)" type="radio" class="btn-check" name="size"
+                                    id="5" autocomplete="off">
+                                <label class="btn btn-secondary btn-outline-dark me-4 button  btn-lg"
+                                    for="5">3XL</label>
                                 <br>
                                 <br>
                                 <label for="quantity" class="col-sm-2 col-form-label">
                                     <h5> Số Lượng:</h5>
                                 </label>
-                                <input type="number" value="1" max="99" min="1" name="quantity">
-                                <button class="btn btn-success" name="add">Thêm vào giỏ hàng</button>
+                                <input type="number" value="1" max="99" min="1" name="quantity" class="me-4">
+                                <button class="btn btn-success " style="width:60%" name="add">Thêm vào giỏ hàng</button>
 
                             </form>
                             <script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
@@ -285,7 +359,11 @@ session_start();
                                         collection[0].innerHTML = elements[2].value;
                                     } else if (id == "3") {
                                         collection[0].innerHTML = elements[3].value;
-                                    } else if (id == "4") { collection[0].innerHTML = elements[4].value; }
+                                    } else if (id == "4") { 
+                                        collection[0].innerHTML = elements[4].value; 
+                                    } else if (id == "5") { 
+                                        collection[0].innerHTML = elements[5].value; 
+                                    }
                                 }
 
                             </script>
@@ -352,19 +430,19 @@ session_start();
                     </div>
                     <hr>
                     <h5> Đặc điểm nổi bật :</h5>
-                    
+
                     <div class="row">
-                        <div >
+                        <div>
                             <?php foreach ($all_products3 as $row1):
-                            if ($row1['id'] == $ProductId) { ?>
+                                if ($row1['id'] == $ProductId) { ?>
                             <br>
                             <div style="font-size: 20px;line-height: 1.5em;line-height: 1.9em;padding-left: 15px;">
                                 <p>
-                                    <?php                                   
+                                    <?php
                                     $search = ['<br />', 'Chất'];
-                                    $replace = ['<br /> -', '- Chất']; 
-                                    echo str_replace($search,$replace, nl2br($row1["description"])); ?>
-                                    
+                                    $replace = ['<br /> -', '- Chất'];
+                                    echo str_replace($search, $replace, nl2br($row1["description"])); ?>
+
                                 </p>
                             </div>
                             <?php }endforeach ?>
@@ -373,17 +451,133 @@ session_start();
 
                 </div>
             </div>
-            
-        </div>
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <div class="customer-reviews row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h4>Bình luận sản phẩm</h4>
+                            <form id="formgroupcomment" method="post">
+                                <div class="form-group">
+                                    <label>Tên:</label>
+                                    <input name="comm_name" required="" type="text" id='form-name' class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email:</label>
+                                    <input name="comm_mail" required="" type="email" class="form-control" id="pwd">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nội dung:</label>
+                                    <textarea name="comm_details" required="" rows="8" id='formcontent'
+                                        class="form-control"></textarea>
+                                </div>
+                                <button type="submit" name="sbm" id="submitcomment" class="btn btn-primary">Gửi</button>
+                            </form>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="comment-item">
+                    <ul class="item-reviewer">
+                        <div class="comment-item-user">
+                            <img src="img/1.png" alt="" class="comment-item-user-img">
+
+                            <li><b>Minh Linh</b></li>
+                        </div>
+                        <br>
+                        <li>2022-12-10 20:40:10</li>
+                        <li>
+                            <p>Sản phẩm tốt, tuy nhiên, giao hàng hơi chậm ạ. Hi vọng Coolmate sẽ cải thiện vấn đề này
+                                ạ</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="comment-item">
+                    <ul class=item-reviewer>
+                        <div class="comment-item-user">
+                            <img src="img/2.png" alt="" class="comment-item-user-img">
+                            <li><b>Minh Phát</b></li>
+                        </div>
+                        <br>
+                        <li>2022-12-10 12:20:10</li>
+                        <li>
+                            <p>Mặc dù có vài trục trặc nhỏ trong việc nhận đơn hàng nhưng coolmate đã làm rất tốt. Chất
+                                liệu sản phẩm thì không gì đáng chê cả</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="comment-item">
+                    <ul class=item-reviewer>
+                        <div class="comment-item-user">
+                            <img src="img/5.png" alt="" class="comment-item-user-img">
+                            <li><b>Khánh Minh</b></li>
+                        </div>
+                        <br>
+                        <li>2022-12-10 10:48:20</li>
+                        <li>
+                            <p>Đây là chiếc áo khoác có form dáng ổn nhất mình từng mua của Coolmate. Chất lượng có vẻ
+                                cũng khá tốt có điều màu đen không quá sâu.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="comment-item">
+                    <ul class=item-reviewer>
+                        <div class="comment-item-user">
+                            <img src="img/6.png" alt="" class="comment-item-user-img">
+                            <li><b>Thế Ngọc</b></li>
+                        </div>
+                        <br>
+                        <li>2022-12-10 20:40:18</li>
+                        <li>
+                            <p>Áo có chất liệu thoáng mát, không quá nóng trong điều kiện thời tiết tại Việt Nam. Mặc
+                                thoải mái và dễ phối với các trang phục khác.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                let submitBtn = document.getElementById("formgroupcomment")
+                submitBtn.onsubmit = function (event) {
+                    event.preventDefault();
+                    let nameIn = document.getElementById('form-name')
+                    let commentIn = document.getElementById('pwd')
+                    let contentIn = document.getElementById("formcontent")
+                    // lấy giờ
+                    var currentdate = new Date();
+                    var datetime = currentdate.getFullYear() + "-" + currentdate.getMonth() + '-' + currentdate.getDate() + " " + currentdate.getHours() + ":"
+                        + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+
+                    // thêm nội dung vào trang web 
+
+                    let reviewer = document.getElementsByClassName('item-reviewer')[0];
+                    var ul = document.createElement('ul');
+                    ul.innerHTML = `
+                    <ul class = item-reviewer>
+                        <div class="comment-item-user">
+                            <img src="img/1.png" alt="" class="comment-item-user-img">                           
+                            <li><b> ${nameIn.value}</b></li> 
+                        </div>
+                        <br>
+                        <li>${datetime}</li>
+                        <li>
+                            <p> ${contentIn.value}</p>
+                        </li>
+                    </ul> `
+                    reviewer.prepend(ul);
+                }
+            </script>
+        </div>
     </div>
     <div>
         <br>
         <?php include '../footer.php' ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></scrip >
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 
-            </body >
+</body>
 
-</html >
+</html>

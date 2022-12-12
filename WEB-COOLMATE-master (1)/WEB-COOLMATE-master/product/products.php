@@ -225,14 +225,4 @@
 
 </html>
 
-                    <div id="features-listing" class="product-features__listing" style="">
-                        <?php foreach ($all_products3 as $row1):
-                                if ($row1['id'] == $ProductId) { ?>
-                                <br>
-                                <div class="product-features__item">
-                                <h1>
-                                    <?php echo $row1["description"] ?>
-                                </h1>
-                                </div>                              
-                            <?php }endforeach ?>                          
-                        </div>
+                    
