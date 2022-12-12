@@ -86,9 +86,9 @@
             <form action="" method="post" class="border-top">
                 <label for="">Thêm admin</label> <br>
                 <label for="email" class="form-text">Email</label>
-                <input type="text" name="email" class="form-control">
+                <input type="email" name="email" class="form-control">
                 <label for="password" class="form-text">Password</label>
-                <input type="text" name="password" class="form-control">
+                <input type="text" id="password" name="password" class="form-control">
                 <br>
                 <input type="submit" name="add-admin" value="Thêm" class="btn btn-primary">
             </form>
@@ -96,4 +96,5 @@
         </div>
     </div> 
 </body>
+<script src="../public/validation.js"></script>
 </html>

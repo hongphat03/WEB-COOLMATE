@@ -51,25 +51,25 @@
         foreach($result as $row ){
     ?>  
     <form method="post"> 
-        <input type="hidden" name="id" class="form-control" value="<?php echo $id ?>"> <br>     
+        <input required type="hidden" name="id" class="form-control" value="<?php echo $id ?>"> <br>     
         <!-- name  -->
         <label for="name" class="form-text"><b>Ten San Pham</b></label> <br>
-        <input type="text" name="name" class="form-control" value="<?php echo $row['name']?>"> <br>
+        <input required type="text" name="name" class="form-control" value="<?php echo $row['name']?>"> <br>
         <!-- price -->
         <label for="price" class="form-text"><b>Gia</b></label> <br>
-        <input type="text" name="price" class="form-control" value="<?php echo $row['price']?>"> <br>
+        <input required type="text" name="price" class="form-control" value="<?php echo $row['price']?>"> <br>
         <!-- image  -->
         <label for="img" class="form-text"><b>Hinh anh</b> </label>    <br>
-        <input type="text" name="img" class="form-control" value="<?php echo $row['image']?>">    <br>
+        <input required type="text" name="img" class="form-control" value="<?php echo $row['image']?>">    <br>
         <!-- type  -->
         <label for="type" class="form-text"><b>Loai san pham</b></label> <br>
-        <input type="text" name="type" class="form-control" value="<?php echo $row['type']?>"> <br>
+        <input required type="text" name="type" class="form-control" value="<?php echo $row['type']?>"> <br>
         <!-- material  -->
         <label for="material" class="form-text"><b>Chat lieu</b></label> <br>
-        <input type="text" name="material" class="form-control" value="<?php echo $row['material']?>"> <br>
+        <input required type="text" name="material" class="form-control" value="<?php echo $row['material']?>"> <br>
         <!-- description -->
         <label for="description" class="form-text"><b>Mo ta</b></label> <br>
-        <textarea type="text" name="description" class="form-control"><?php echo $row['description']?> </ <br>
+        <textarea type="text" name="description" class="form-control"><?php echo $row['description']?> </textarea> <br>
  
         <button class="btn btn-success" >Cap nhat</button>
     </form>

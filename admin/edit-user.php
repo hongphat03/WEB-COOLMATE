@@ -50,14 +50,14 @@
     <form method="post"> 
         <input type="hidden" name="id" class="form-control" value="<?php echo $id ?>"> <br>     
         <!-- name  -->
-        <label for="name" class="form-text"><b>Ten San Pham</b></label> <br>
-        <input type="text" name="name" class="form-control" value="<?php echo $row['username']?>"> <br>
+        <label for="name" class="form-text"><b>Họ và Tên</b></label> <br>
+        <input type="text" name="name" class="form-control" value="<?php echo $row['username']?>" required> <br>
         <!-- price -->
-        <label for="phone_number" class="form-text"><b>Gia</b></label> <br>
-        <input type="text" name="phone_number" class="form-control" value="<?php echo $row['phone_number']?>"> <br>
+        <label for="phone_number" class="form-text"><b>Số điện thoại</b></label> <br>
+        <input type="text" name="phone_number" class="form-control" value="<?php echo $row['phone_number']?>" required> <br>
         <!-- email  -->
-        <label for="email" class="form-text"><b>Hinh anh</b> </label>    <br>
-        <input type="text" name="email" class="form-control" value="<?php echo $row['email']?>">    <br>
+        <label for="email" class="form-text"><b>Email</b> </label>    <br>
+        <input type="email" name="email" class="form-control" value="<?php echo $row['email']?>">    <br>
  
         <button class="btn btn-success" >Cap nhat</button>
     </form>
@@ -67,5 +67,4 @@
     ?>
 </div>
 </body>
-<script src="main.js"></script>
 </html> 

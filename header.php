@@ -1,3 +1,10 @@
+<div class="marquee">
+        <div>
+            <span> Nhập CMSHI50K Giảm 50k cho đơn hàng từ 449k</span>
+            <span>Nhập CMADTHU2 Tặng Áo Recycle Active V1 169k cho đơn hàng từ 549k </span>
+            <span> Nhập CMDKS20K Giảm 20k cho đơn hàng từ 249k </span>
+        </div>
+    </div> 
 <div class="header">
         <div class="col-third">    
             <a href="">
@@ -5,7 +12,7 @@
             </a></div>
         <div class="col-third">
         <a href="http://localhost/COOLMATE/product/products.php"> Sản phẩm</a>
-        <a href="" class="">Về Coolmate</a>
+        <a href="http://localhost/COOLMATE/aboutcoolmate.php">Về Coolmate</a>
         <a href="" class="">Chọn Size</a>
         </div>
         <div class="pdr col-third">

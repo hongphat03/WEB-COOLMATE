@@ -108,16 +108,16 @@
         <?php if(empty($_SESSION['email'])){ ?>   
          <!-- dia chi -->
         <label for="name" class="form-text"><b>Ho va Ten</b> </label>    <br>
-        <input type="text" name="name" class="form-control">    <br>
+        <input type="text" name="name" class="form-control" required>    <br>
         <!-- dia chi -->
         <label for="address" class="form-text"><b>Dia chi</b> </label>    <br>
-        <input type="text" name="address" class="form-control">    <br>
+        <input type="text" name="address" class="form-control" required>    <br>
         <!-- so dien thoai -->
         <label for="phone_number" class="form-text"><b>SDT</b> </label>    <br>
-        <input type="text" name="phone_number" class="form-control">    <br>
+        <input type="text" id="phone" name="phone_number" class="form-control" required>    <br>
 
         <label for="email" class="form-text"><b>Email</b> </label>    <br>
-        <input type="text" name="email" class="form-control">    <br>
+        <input type="email" name="email" class="form-control">    <br>
         <?php } ?>
         <!-- submit -->
         <button class="btn btn-success" name="buy">Mua hang</button>
@@ -160,4 +160,5 @@
         
 </div>
 </body>
+<script src="../public/validation.js"></script>
 </html>

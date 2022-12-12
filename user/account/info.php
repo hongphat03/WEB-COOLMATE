@@ -76,26 +76,26 @@
                 <form method="post">    
                     <!-- name  -->
                     <label for="name" class="form-text"><b>Họ và Tên</b></label> <br>
-                    <input type="text" name="name" class="form-control" value="<?php echo $row['username']?>"> <br>
+                    <input type="text" name="name" class="form-control" value="<?php echo $row['username']?>" required> <br>
                     <!-- sdt -->
-                    <label for="phone_number" class="form-text"><b>Số điện thoại</b></label> <br>
-                    <input type="text" name="phone_number" class="form-control" value="<?php echo $row['phone_number']?>"> <br>
+                    <label for="phone_number"  class="form-text"><b>Số điện thoại</b></label> <br>
+                    <input type="text" id="phone" name="phone_number" class="form-control" value="<?php echo $row['phone_number']?>"> <br>
                     <!-- email  -->
                     <label for="email" class="form-text"><b>Email</b> </label>    <br>
-                    <input type="text" name="email" class="form-control" value="<?php echo $row['email']?>">    <br>
+                    <input type="email" name="email" class="form-control" value="<?php echo $row['email']?>" required>    <br>
                     <!-- address  -->
                     <label for="address" class="form-text"><b>Địa chỉ</b> </label>    <br>
-                    <input type="text" name="address" class="form-control" value="<?php echo $row['address']?>">    <br>
+                    <input type="text" name="address" class="form-control" value="<?php echo $row['address']?>" required>    <br>
                     
                     <!-- oldPassword -->
                     <label for="oldPassword" class="form-text"><b>Nhập mật khẩu cũ</b></label>
                     <input type="password"  name="oldPassword" class="formControl form-control" placeholder="Mật khẩu"> <br>
                     <!-- password -->
                     <label for="newPassword" class="form-text"><b>Nhập mật khẩu mới</b></label>
-                    <input type="password" name="newPassword" class="formControl form-control" placeholder="Mật khẩu"> <br>
+                    <input type="password" id="password" name="newPassword" class="formControl form-control" placeholder="Mật khẩu"> <br>
                     <!-- nhap lai password  -->
                     <label for="newPassword2" class="form-text"><b>Nhập mật khẩu mới</b></label>
-                    <input type="password" name="newPassword2" class="formControl form-control" placeholder="Nhập lại mật khẩu"> <br>
+                    <input type="password" id="password2" name="newPassword2" class="formControl form-control" placeholder="Nhập lại mật khẩu"> <br>
 
                     <button class="btn btn-success" >Cập nhật</button>
                 </form>
@@ -110,5 +110,5 @@
     include('../../footer.php');
     ?>
 </body>
-<script src="main.js"></script>
+<script src="../../public/validation.js"></script>
 </html> 

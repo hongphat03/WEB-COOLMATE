@@ -12,13 +12,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="marquee">
-        <div>
-            <span> Nhập CMSHI50K Giảm 50k cho đơn hàng từ 449k</span>
-            <span>Nhập CMADTHU2 Tặng Áo Recycle Active V1 169k cho đơn hàng từ 549k </span>
-            <span> Nhập CMDKS20K Giảm 20k cho đơn hàng từ 249k </span>
-        </div>
-    </div>
     <?php
     include 'header.php';
     include 'main.php';

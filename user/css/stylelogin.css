@@ -18,7 +18,7 @@ body{
     transform: translate(80%,30%);
 }
 .centerScreen{
-    padding: 32px;
+    padding: 5px;
     position: relative;
 }
 .formControl{
