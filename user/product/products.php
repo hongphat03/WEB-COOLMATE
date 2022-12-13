@@ -93,7 +93,7 @@
             <div class="col-md-3 text-end header_cart">
             <div class="header_cart-swap showCart">
               <span class="header_cart-notice"><?php echo count($result) ?></span>
-               <a href="../user/product_in_cart.php"> <i style="color: black;" class="ti-shopping-cart"></i> </a>                    
+               <a href="product_in_cart.php"> <i style="color: black;" class="ti-shopping-cart"></i> </a>                    
               <div class="header_cart-list <?php echo (count($result)==0) ? ' header_cart-list--no-cart' : 'header_cart-list--yes-cart' ?>"> 
                   <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/4122b759f91bd8dce310f1bc691e78ad.png" 
                   alt="" class="header_cart-no-cart-img">

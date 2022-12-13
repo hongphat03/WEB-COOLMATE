@@ -64,4 +64,13 @@ color: white;
 }
 /* mobiphone */
 @media(max-width:739px){
+    .headerHide{
+        display: none;
+    }
+    .marquee{
+        display: none;
+    }
+    .footer{
+        display: none;
+    }
 }

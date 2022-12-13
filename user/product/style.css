@@ -302,11 +302,65 @@ display: none;
 .showCart{
   display: none;
 }
-@media (min-width: 740px) and (max-width:1023px){
+label.btn.btn-secondary.btn-outline-dark.me-4.button.btn-lg {
+  line-height: 22px;
+  font-weight: 600;
+  border: 0px;}
+input.me-4 {
+  padding: 5px;
+  border-radius: 15px;
+  padding-left: 20px;
+}
+.buy{
+  border: 0px;
+  border-radius: 15px;
+  height: 40px;
+  font-weight: 500;
+  background-image: url(https://mcdn.coolmate.me/image/December2022/mceclip0_80.jpg);
+}
+@media (min-width: 740px) and (max-width:1300){
+  .showCart{
+  display: block;
+  position: absolute;
+  right: 90px;
+  top: -15px;
+  }
+  .product>ul{
+    display: none !important;
+  }
+}
+@media (max-width:740px){
   .showCart{
     display: block;
     position: absolute;
-    right: 90px;
-    top: -15px;
+    right: 30px;
+    top: -28px;
+  }
+  .product{
+    margin-left: -44px;
+    width: 140%;
+  }
+  .product>ul{
+    display: none !important;
+  }
+  .form-select{
+    padding: 0px;
+  }
+  .header_cart-no-cart-img{
+    width: 50px;
+  }
+  option{
+    font-size: 10px;
+  }
+  .product-singer {
+    width: 130%;
+    margin-left: -28px;
+  }
+  label.btn.btn-secondary.btn-outline-dark.me-4.button.btn-lg {
+    line-height: 22px;
+    font-weight: 600;
+    border: 0px;
+    margin-bottom: 10px;
+    width: 44px;
   }
 }

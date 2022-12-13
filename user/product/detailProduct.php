@@ -10,12 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../../view/css/stylefooter.css">
     <link rel="stylesheet" href="../../view/css/styleheader.css">
-    <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../../view/css/stylemain.css">
+    <link rel="stylesheet" href="../../view/css/themify-icons/themify-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
     <style>
         .row {
         margin-left: 0px;
@@ -127,136 +128,124 @@
     
     <div class=" main">
 
-        <div class="menu">
-            <nav class="navbar navbar-expand-lg bg-white">
-                <div class="container-fluid">
-                    <p class="navbar-brand" href="#">Sản Phẩm</p>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <form method="post" action="">
-                                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 text-white ">
-                                        <li class="nav-link px-2 link-white">
-                                            <select name="Type" class="form-select selection"
-                                                aria-label="Default select example">
-                                                <option value="">Tất cả</option>
-                                                <?php foreach ($all_products2 as $single_product2) { ?>
-                                                <option value="<?php echo $single_product2["type"] ?>">
-                                                    <?php echo $single_product2["type"] ?>
-                                                </option>
-                                                <?php } ?>
-                                            </select>
-                                        </li>
-                                        <li class="nav-link px-2 link-white">
-                                            <select name="material" id="" class="form-select"
-                                                aria-label="Default select example"
-                                                value="<?php echo $single_product["material"] ?>">
-                                                <option value="">Tất cả</option>
-                                                <?php foreach ($all_products as $single_product) { ?>
-                                                <option value="<?php echo $single_product["material"] ?>">
-                                                    <?php echo $single_product["material"] ?>
-                                                </option>
-                                                <?php } ?>
-                                            </select>
-                                        </li>
-                                        <li class="nav-link px-2 link-white ">
-                                            <button class="btn btn-success"><a href="products.php"
-                                                    class="button">Tìm</a></button>
-                                        </li>
-                                    </ul>
-                                </form>
-                            </li>
-                        </ul>
+    <div class="menu">
+      <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container-fluid">
+        <div style="padding-top: 0px;" class="left_main">
+              <i class="ti-menu"></i>
+              <div class="nav_left_main">
+                  <ul>
+                      <li><a href="http://localhost/coolmate/">Trang chủ</a>
+                          </li>
+                      <li><a href="http://localhost/coolmate/view/aboutcoolmate.php">Về Coolmate</a>
+                          </li>
+                      <li><a href="" class="">Chọn Size</a></li>
+                  </ul>
+              </div>
+          <!-- </div> -->
+          </div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <form method="post" action="">
+                  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 text-white ">
+                    <li class="nav-link px-2 link-white" >
+                  <select name="Type" class="form-select selection" aria-label="Default select example">
+                    <option value="">Loại áo</option>
+                    <<?php
+                      foreach($all_products2 as $single_product2)
+                      {?>
+                        <option value="<?php echo $single_product2["type"]?>"><?php echo $single_product2["type"]?></option>
                         <?php
-                        $spp = 0;
-                        $product = "";
-                        if (isset($_POST['deleteProductInCart'])) {
-                            $idProduct = $_POST['deleteProductInCart'];
-                            $sql = "delete from products_in_cart where productId = '$idProduct' LIMIT 1";
-                            execute($sql);
-                        }
-                        $sql = "select * from products_in_cart";
-                        $result = executeResult($sql);
+                      }
+                    ?>                      
+                  </select>
+                  </li> 
+                  <li class="nav-link px-2 link-white">
+                  <select name="material" id="" class="form-select" aria-label="Default select example"value="<?php echo $single_product["material"]?>">
+                    <option value="">Loại vải</option>
+                    <?php
+                      foreach($all_products as $single_product)
+                      {
                         ?>
-                        <div class="col-md-3 text-end header_cart">
-                            <div class="header_cart-swap">
-                                <span class="header_cart-notice">
-                                    <?php echo count($result) ?>
-                                </span>
-                                <a href="product_in_cart.php"><img
-                                        src="https://lzd-img-global.slatic.net/g/tps/tfs/TB1xEeTdBGw3KVjSZFDXXXWEpXa-75-66.png"
-                                        class="btn btn-primary me-5" style="height:30px ;"></a>
-                                <!-- No cart:header_cart-list--no-cart  <div class="header_cart-list header_cart-list--no-cart header_cart-list--yes-cart">-->
-                                <div
-                                    class="header_cart-list <?php echo (count($result) == 0) ? ' header_cart-list--no-cart' : 'header_cart-list--yes-cart' ?>">
-                                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/4122b759f91bd8dce310f1bc691e78ad.png"
-                                        alt="" class="header_cart-no-cart-img">
-                                    <span class="header_cart-list-no-cart-msg">Chưa có sản phẩm</span>
-                                    <h4 class="header_cart-heading">Sản phẩm đã thêm</h4>
-                                    <ul class="header_cart-list-item">
-                                        <?php
-                                        if (count($result) > 0) {
-
-                                            foreach ($result as $row) {
-                                                $idProduct = $row['productId'];
-                                                $sql2 = "select * from products where id = '$idProduct'";
-                                                $result2 = executeResult($sql2);
-                                                foreach ($result2 as $row2) { ?>
-                                        <li class="header_cart-item">
-                                            <img src="<?php echo $row2['image'] ?>" alt="" class="header_cart-img">
-                                            <div class="header_cart-item-info">
-                                                <div class="header_cart-item-head">
-                                                    <h5 class="header_cart-item-name">
-                                                        <?php echo $row2['name'] ?>
-                                                    </h5>
-                                                    <div class="header_cart-item-price-swap">
-                                                        <span class="header_cart-item-price">
-                                                            <?php echo $row2['price'] ?>đ
-                                                        </span>
-                                                        <span class="header_cart-item-mul">x</span>
-                                                        <span class="header_cart-item-qnt">
-                                                            <?php echo $row['quantity'] ?>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="header_cart-item-body">
-                                                    <span class="header_cart-item-type">
-                                                        <span class="header_cart-item-type-1">
-                                                            <?php echo $row2['type'] ?>
-                                                        </span>
-                                                        <span class="header_cart-item-type-2"> /
-                                                            <?php echo $row['size'] ?>
-                                                        </span>
-                                                    </span>
-                                                    <form action="" method="post">
-                                                        <button name="deleteProductInCart"
-                                                            class="header_cart-item-remove"
-                                                            value="<?php echo $idProduct ?>">Xóa</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <?php
-                                                    $product .= "$idProduct ";
-                                        ?>
-                                        <?php }
-                                            }
-                                        } ?>
-
-                                    </ul>
+                        <option value="<?php echo $single_product["material"]?>"><?php echo $single_product["material"]?></option>
+                        <?php
+                      }
+                    ?>      
+                  </select>
+                   </li>
+                   <li class="nav-link px-2 link-white">
+                  <button > <i class="ti-search"></i></button>
+                     </li>                 
+                  </ul>
+                </form>
+              </li>  
+            </ul>
+            <?php
+            $spp = 0;
+              $product = "";
+              if (isset($_POST['deleteProductInCart'])) {
+                  $idProduct = $_POST['deleteProductInCart'];
+                  $sql = "delete from products_in_cart where productId = '$idProduct' LIMIT 1";
+                  execute($sql);
+              }
+              $sql = "select * from products_in_cart";
+              $result = executeResult($sql);
+              ?>
+            <div class="col-md-3 text-end header_cart">
+            <div class="header_cart-swap showCart">
+              <span class="header_cart-notice"><?php echo count($result) ?></span>
+               <a href="../user/product_in_cart.php"> <i style="color: black;" class="ti-shopping-cart"></i> </a>                    
+              <div class="header_cart-list <?php echo (count($result)==0) ? ' header_cart-list--no-cart' : 'header_cart-list--yes-cart' ?>"> 
+                  <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/4122b759f91bd8dce310f1bc691e78ad.png" 
+                  alt="" class="header_cart-no-cart-img">
+                  <span class="header_cart-list-no-cart-msg">Chưa có sản phẩm</span>
+                  <h4 class="header_cart-heading">Sản phẩm đã thêm</h4>
+                  <ul class="header_cart-list-item">
+                    <?php 
+                    if (count($result) > 0) {
+                        
+                        foreach ($result as $row) {
+                        $idProduct = $row['productId'];
+                        $sql2 = "select * from products where id = '$idProduct'";
+                        $result2 = executeResult($sql2);                     
+                        foreach ($result2 as $row2) { ?>
+                            <li class="header_cart-item">
+                            <img src="<?php echo $row2['image'] ?>" alt="" class="header_cart-img">
+                            <div class="header_cart-item-info">
+                            <div class="header_cart-item-head">
+                                <h5 class="header_cart-item-name"><?php echo $row2['name'] ?></h5>
+                                <div class="header_cart-item-price-swap">
+                                <span class="header_cart-item-price"><?php echo $row2['price'] ?>đ</span>
+                                <span class="header_cart-item-mul">x</span>
+                                <span class="header_cart-item-qnt"><?php echo $row['quantity'] ?></span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            <div class="header_cart-item-body">
+                                <span class="header_cart-item-type">
+                                  <span class="header_cart-item-type-1"><?php echo $row2['type'] ?></span>
+                                  <span class="header_cart-item-type-2"> / <?php echo $row['size'] ?></span>
+                                </span>                               
+                                <form action="" method="post">
+                                <button name="deleteProductInCart" class="header_cart-item-remove" value="<?php echo $idProduct ?>">Xóa</button>
+                                </form>
+                            </div>
+                            </div>
+                            </li>
+                        <?php
+                        $product .= "$idProduct ";
+                        ?>
+                    <?php }
+                        } 
+                    } ?>
+                                
+                  </ul>
                 </div>
-            </nav>
+              </div> 
+            </div>  
+             <!--end test-->         
         </div>
-
+      </nav>
+    </div>
         <div class="content">
             <div class="row ">
                 <div class=" col-sm-6  product-singer2 ">
@@ -327,8 +316,7 @@
                                     <h5> Số Lượng:</h5>
                                 </label>
                                 <input type="number" value="1" max="99" min="1" name="quantity" class="me-4">
-                                <button class="btn btn-success " style="width:60%" name="add" onclick="addProduct()">Thêm vào giỏ hàng</button>
-
+                                <button class="buy" style="width:60%" name="add" onclick="addProduct()">Thêm vào giỏ hàng</button>
                             </form>
                             <script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
                                 function updateSize(id) {

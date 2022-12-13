@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="../../view/css/stylefooter.css">
     <link rel="stylesheet" href="../../view/css/styleheader.css">
     <link rel="stylesheet" href="styleproduct.css">
+    <link rel="stylesheet" href="../../view/css/themify-icons/themify-icons.css">
 </head>
 <body>
 
@@ -61,7 +62,7 @@
                     ?>
                         <h3 style="color: black;">Bạn chưa có sản phẩm nào trong giỏ hàng</h3 >
                         <div class="btn-addproduct">
-                        <a class="btn btn-success" href="product.php">Tiếp tục mua hàng</a>
+                        <a class="btn btn-success" href="http://localhost/coolmate/user/product/products.php">Tiếp tục mua hàng</a>
                         </div>
                     <?php     
                     }
@@ -126,7 +127,7 @@
                         </table>
                                 
                     <div class="btn-addproduct">
-                        <a class="btn btn-success" href="products.php">Mua thêm sản phẩm</a>
+                        <a class="btn btn-success" href="http://localhost/coolmate/user/product/products.php">Mua thêm sản phẩm</a>
                     </div>
                 </div>
             </div>

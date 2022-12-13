@@ -19,6 +19,7 @@
             <li class=""><a href="./product.php" class="">Quản lý sản phẩm</a></li>
             <li class=""><a href="./order.php" class="">Quản lý đơn hàng</a></li>
             <li class=""><a href="./business.php" class="">Quản lý kinh doanh</a></li>
+            <li class=""><a href="./infor.php" class="">Quản lý thông tin</a></li>
         </ul>
     </div>
 </body>
