@@ -11,6 +11,7 @@
   <title>Coolmate - Giải pháp mua sắm cả tủ đồ cho nam giới - Coolmate</title>
   <link rel="stylesheet" href="../../view/css/stylefooter.css">
   <link rel="stylesheet" href="../../view/css/styleheader.css">
+  <link rel="stylesheet" href="../../view/css/stylemain.css">
   <link rel="stylesheet" href="../../view/css/themify-icons/themify-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
@@ -33,9 +34,9 @@
               <i class="ti-menu"></i>
               <div class="nav_left_main">
                   <ul>
-                      <li><a href="http://localhost/COOLMATE/">Trang chủ</a>
+                      <li><a href="http://localhost/coolmate/">Trang chủ</a>
                           </li>
-                      <li><a href="http://localhost/COOLMATE/aboutcoolmate.php">Về Coolmate</a>
+                      <li><a href="http://localhost/coolmate/view/aboutcoolmate.php">Về Coolmate</a>
                           </li>
                       <li><a href="" class="">Chọn Size</a></li>
                   </ul>

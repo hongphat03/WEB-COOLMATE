@@ -57,7 +57,7 @@ color: white;
     padding-left: 130px;
 }
 /* tablet */
-@media (min-width: 740px) and (max-width:1023px){
+@media (min-width: 740px) and (max-width:1300px){
     .headerHide{
     display: none;
     }

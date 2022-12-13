@@ -18,7 +18,5 @@
     include 'view/main.php';
     include 'view/footer.php';
     ?>
-
-    <script src="./assets/main.js"></script>
 </body>
 </html>

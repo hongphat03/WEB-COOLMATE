@@ -1,15 +1,16 @@
 <div class="main">
-<div class="left_main">
+    <div class="left_main">
         <i class="ti-menu"></i>
         <div class="nav_left_main">
             <ul>
-                <li><a href="http://localhost/COOLMATE/product/products.php"> Sản phẩm</a>
+                <li><a href="http://localhost/coolmate/user/product/products.php"> Sản phẩm</a>
                     </li>
-                <li><a href="http://localhost/COOLMATE/aboutcoolmate.php">Về Coolmate</a>
+                <li><a href="http://localhost/coolmate/view/aboutcoolmate.php">Về Coolmate</a>
                     </li>
                 <li><a href="" class="">Chọn Size</a></li>
             </ul>
         </div>
+
     </div>
     <div class="slideshow-container">
         <div class="mySlides fade">
@@ -29,8 +30,9 @@
             <p>Người đàn ông tốt là người tự biết chăm sóc bản thân anh ấy. Vì đàn ông cũng có quyền được nhận
                 quà, và nếu như bạn chưa có QUÀ, thì hãy tự tin tự sắm cho mình một hộp đồ Coolmate.
                 </p>
-                <a href="http://localhost/COOLMATE/product/products.php" >
+            <a href="http://localhost/coolmate/user/product/products.php" >
                 Khám phá</a >
+            </div>
         <div class="row50">
         <img  src="https://mcdn.coolmate.me/image/December2022/_CMM6258-Recovered_(2).jpg" alt="">
         </div>
@@ -46,7 +48,7 @@
             <p>Người đàn ông tốt là người tự biết chăm sóc bản thân anh ấy. Vì đàn ông cũng có quyền được nhận
                 quà, và nếu như bạn chưa có QUÀ, thì hãy tự tin tự sắm cho mình một hộp đồ Coolmate.
                 </p>
-            <a href="http://localhost/COOLMATE/product/products.php" >
+            <a href="http://localhost/coolmate/user/product/products.php" >
                 Khám phá</a >
             </div>
         <div class="row50">
@@ -60,3 +62,4 @@
         </div>
     </div> 
 </div>
+

@@ -2,9 +2,6 @@ body{
     background-color: rgba(226, 226, 226,0.3);
   
 }
-html{
- 
-}
 .nav-list{
     display: flex;
     height: 100%;
