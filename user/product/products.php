@@ -1,5 +1,17 @@
 <?php
   require_once('../../database/dbhelper.php');
+  $page;
+  if (!isset ($_GET['page']) ) {
+    $page = 1;
+    } else {   
+    $page = $_GET['page'];
+    }
+    $results_per_page = 8;
+    $page_first_result = ($page-1) * $results_per_page;
+    $sql = "select * from products";
+    $result = executeResult($sql);
+    $number_of_result = count($result);
+    $number_of_page = ceil ($number_of_result / $results_per_page);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -147,7 +159,7 @@
     </div>
     
     <?php
-      $sql = "select * from products";
+      $sql = "select * from products limit ".$page_first_result.",".$results_per_page;
       $result = executeResult($sql);     
       if (!empty($_POST['Type'])) 
       {
@@ -205,8 +217,34 @@
       <?php endif ?> 
   </div>
 <div>
-  <br>
-<?php include("../../view/footer.php") ?>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+    <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    
+<?php
+for ($page = 1; $page <= $number_of_page; $page++) {
+  echo '<li class="page-item">';
+  echo '<a class = "page-link" href = "products.php?page=' . $page . ' ">' . $page . '</a>';
+  echo '</li>';
+}
+?>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    </ul>
+</nav>
+<?php
+// for ($page = 1; $page <= $number_of_page; $page++) {
+//   echo '<a href = "products.php?page=' . $page . ' ">' . $page . '</a>';
+// }
+include("../../view/footer.php")
+?>
 </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

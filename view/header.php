@@ -6,8 +6,8 @@
         </div>
     </div> 
 <div class="header">
-        <div class="col-third">    
-            <a href="http://localhost/COOLMATE/">
+        <div class="col-third mgt28">    
+            <a href="http://localhost/coolmate/">
             <img src="https://www.coolmate.me/images/logo-coolmate-white.svg" width="95px" height="50px" alt="Logo_coolmate">
             </a></div>
         <div class="col-third headerHide">
@@ -26,4 +26,14 @@
         <?php } ?>
         <a href="http://localhost/coolmate/user/product/product_in_cart.php"> <i class="ti-shopping-cart"></i> Giỏ hàng</a>
         </div>
-</div>
+        <div class="pdr headerAppear col-third " style="padding-top: 10px;"> 
+        <?php 
+        if(isset($_SESSION['email'])){ ?>
+        <a class="" href="http://localhost/coolmate/user/account/info.php"> <i class="ti-user"></i></a>
+        <?php } else{ ?>
+        <a class="" href="http://localhost/coolmate/user/account/login.php"> <i class="ti-user"></i></a>
+        <?php } ?>
+        <a href="http://localhost/coolmate/user/product/product_in_cart.php"> <i class="ti-shopping-cart"></i></a>
+        </div>
+
+    </div>

@@ -56,21 +56,49 @@ color: white;
 .pdr{
     padding-left: 130px;
 }
+.headerAppear{
+    display: flex;
+    display: none;
+}
 /* tablet */
 @media (min-width: 740px) and (max-width:1300px){
     .headerHide{
     display: none;
     }
+    .headerAppear{
+        display: block;
+    }
+    .col-third{
+        width: auto !important;
+    }
+    .pdr {
+        padding-left: 380px;
+    }
 }
 /* mobiphone */
 @media(max-width:739px){
+    .khampha img{
+        max-width: 390px;
+        max-height: 207px;
+    }
+    .nav_chinh {
+        transform: translate(5%,-95%) !important;
+    }
     .headerHide{
         display: none;
     }
     .marquee{
         display: none;
     }
-    .footer{
-        display: none;
+    .headerAppear{
+        display: block;
+    }
+    .col-third{
+    }
+    .mgt28{
+        margin-top: 28px;
+    }
+    .pdr {
+        padding-left: 100px;
     }
 }

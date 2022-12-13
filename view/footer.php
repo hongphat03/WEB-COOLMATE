@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="container">
-            <div class="footerrow row">
+            <div class="footerrow row footerHide">
                 <h5>Khám Phá COOLMATE</h5>
                 <a href="">Áo Polo</a>
                 <a href="">Áo T-shirt</a>
@@ -11,8 +11,8 @@
                 <a href="">Mũ(nón)</a>
                 <a href="">Phụ kiện khác</a>
             </div>
-            <div class="footerrow">
-                <div class="row"> 
+            <div class="footerrow footerHide">
+                <div class="row">
                     <h5>Dịch vụ khách hàng</h5>
                     <a href="">Hỏi đáp - FAQs</a>
                     <a href="">Chính sách đổi trả 60 ngày</a>
@@ -22,14 +22,14 @@
                     <a href="">Chính sách khuyến mãi</a>
                     <a href="">Chính sách giao hàng</a>
                 </div>
-                <div class="row">
+                <div class=" row">
                     <h5>Kiến thức mặc đẹp</h5>
                     <a href="">Hướng dẫn chọn size</a>
                     <a href="">Blog</a>
                     <a href="">Group mặc đẹp sống chất</a>
                 </div>
             </div>
-            <div class="footerrow">
+            <div class="footerrow footerHide">
                 <div class="row">
                     <h5>Tài liệu - Tuyển dụng</h5>
                     <a href="">Tuyển dụng</a>
@@ -73,7 +73,7 @@
                         }
                     ?>
                 </p>
-                <div class="link_footer">
+                <div class="link_footer footerHide">
 
                     <a href="<?php  foreach ($result as $row) { if($row['youtube']) echo $row['youtube']; }?>" class=""><i class="ti-youtube"></i></a>
                     <a href="<?php  foreach ($result as $row) { if($row['facebook']) echo $row['facebook'];}?>" class=""> <i class="ti-facebook"></i></a>

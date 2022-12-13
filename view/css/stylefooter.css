@@ -35,3 +35,22 @@
 .footerrow a:hover{
     color: #F7C96F;
 }
+
+@media (min-width: 740px) and (max-width:1300px){
+    .footerrow {
+        width: 20%;
+        line-height: 20px;
+    }
+}
+@media(max-width:739px){
+    footer.footer {
+        margin-top: 30px;
+    }
+    .footerrow {
+        width: 50%;
+        line-height: 20px;
+    }
+    .footerHide{
+        display: none !important ;
+    }
+}

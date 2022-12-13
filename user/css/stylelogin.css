@@ -59,3 +59,17 @@ body{
 .btnRegister:hover{
     color: black;
 }
+/* tablet */
+@media (min-width: 740px) and (max-width:1300px){
+    .screenLogin {
+        width: 520px;
+        transform: translate(25%,30%);}
+}
+/* mobiphone */
+@media(max-width:739px){
+    .screenLogin {
+        width: 245px;
+        transform: translate(30%,10%);}
+    
+}
+

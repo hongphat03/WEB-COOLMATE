@@ -318,6 +318,9 @@ input.me-4 {
   font-weight: 500;
   background-image: url(https://mcdn.coolmate.me/image/December2022/mceclip0_80.jpg);
 }
+.Page .navigation{
+  float: right;
+}
 @media (min-width: 740px) and (max-width:1300){
   .showCart{
   display: block;

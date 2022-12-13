@@ -11,7 +11,7 @@
 			$result = executeResult($sql);
 			if($result != null && count($result) > 0) {
 				//login success
-				header('Location: http://localhost/COOLMATE/admin');
+				header('Location: http://localhost/coolmate/admin');
 			}
 			else{
 				$sql = "select * from members where email = '$email' and password = '$password'";
@@ -19,7 +19,7 @@
 				if($result != null && count($result) > 0) {
 					//login success
 					$_SESSION['email'] = $email;
-					header('Location: http://localhost/COOLMATE/index.php');
+					header('Location: http://localhost/coolmate/index.php');
 				}
 				else{
 					$error['login'] = "Email hoặc mật khẩu chưa đúng";
@@ -41,7 +41,6 @@
 
 </head>
 <body>
-
 <div class="screenLogin">
 		<div class="centerScreen">
 			<div class="title">Đăng Nhập</div>
