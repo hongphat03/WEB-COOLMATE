@@ -7,11 +7,13 @@
       box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
       transition: transform linear 0.1s;
      border-radius: 12px;
+     position: relative;
     }
     .product:hover {
      transform: translateY(-2px); 
       box-shadow: 0 1px 20px 0 rgba(0,0,0,0.05);
     }
+
     .image {
       height: 100px;
       width: 100%;
@@ -258,6 +260,41 @@ justify-content: space-between;
   padding-left: 0px;
   padding-right: 0px;
 }
+ul>li>button{
+  background-color: white;
+  border: 0px;
+}
+ul>li>button:hover{
+  color: #F7C96F;
+}
+.product > ul>li a{
+  color: black;
+  font-weight: 700;
+}
+.product > ul{
+ list-style: none;
+ position: absolute;
+ top: 420px;
+ left: -20px;
+display: none;
 
-
-
+}
+.product > ul> li{
+  margin: 0px 5px;
+  padding: 10px;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
+}
+.product > ul> li:hover{
+  background-color: black;
+}
+.product > ul> li:hover a{
+  color: white;
+}
+.product:hover ul{
+  display: block;
+  display: flex;
+}

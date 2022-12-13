@@ -8,7 +8,7 @@ CREATE TABLE admins (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO admins (email, password) VALUES
-('admin', '12345');
+('admin@gmail.com', '12345678');
 
 
 
@@ -84,3 +84,15 @@ CREATE TABLE ordersDetail (
   size varchar(20) NOT NULL,
   quantity int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE infor (
+  address varchar(255) NOT NULL,
+  phone char(10) NOT NULL,
+  email varchar(50) NOT NULL,
+  facebook varchar(255) NOT NULL,
+  youtube varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO infor (address,phone,email,facebook,youtube) VALUES('HUB Hà Nội: Tầng 3-4, Tòa nhà BMM, KM2, Đường Phùng Hưng, Phường Phúc La, Quận Hà Đông, TP Hà Nội',
+'028.7777.2737','Cool@coolmate.me','https://www.facebook.com/coolmate.me',
+'https://www.youtube.com/channel/UCWw8wLlodKBtEvVt1tTAsMA')

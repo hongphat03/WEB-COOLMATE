@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
+  <title>Coolmate - Giải pháp mua sắm cả tủ đồ cho nam giới - Coolmate</title>
   <link rel="stylesheet" href="../assets/styleheader.css">
   <link rel="stylesheet" href="../assets/stylefooter.css">
   <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
@@ -30,7 +30,6 @@
     <div class="menu">
       <nav class="navbar navbar-expand-lg bg-white">
         <div class="container-fluid">
-          <p class="navbar-brand" href="#">Sản Phẩm </p>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -43,7 +42,7 @@
                   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 text-white ">
                     <li class="nav-link px-2 link-white" >
                   <select name="Type" class="form-select selection" aria-label="Default select example">
-                    <option value="">Tất cả</option>
+                    <option value="">Loại áo</option>
                     <<?php
                       foreach($all_products2 as $single_product2)
                       {?>
@@ -55,7 +54,7 @@
                   </li> 
                   <li class="nav-link px-2 link-white">
                   <select name="material" id="" class="form-select" aria-label="Default select example"value="<?php echo $single_product["material"]?>">
-                    <option value="">Tất cả</option>
+                    <option value="">Loại vải</option>
                     <?php
                       foreach($all_products as $single_product)
                       {
@@ -67,7 +66,7 @@
                   </select>
                    </li>
                    <li class="nav-link px-2 link-white">
-                  <button class="btn btn-success ">Tìm</button>
+                  <button > <i class="ti-search"></i></button>
                      </li>                 
                   </ul>
                 </form>
@@ -88,7 +87,7 @@
               <div class="header_cart-swap">
               <span class="header_cart-notice"><?php echo count($result) ?></span>
                <a href="../user/product_in_cart.php"><img
-                src="https://lzd-img-global.slatic.net/g/tps/tfs/TB1xEeTdBGw3KVjSZFDXXXWEpXa-75-66.png" class="btn btn-primary me-5" style="height:30px ;width:30px"></a>             
+                src="https://lzd-img-global.slatic.net/g/tps/tfs/TB1xEeTdBGw3KVjSZFDXXXWEpXa-75-66.png" class="btn btn-primary me-5" style="height:30px ;"></a>             
                 <!-- No cart:header_cart-list--no-cart  <div class="header_cart-list header_cart-list--no-cart header_cart-list--yes-cart">-->        
                 <div class="header_cart-list <?php echo (count($result)==0) ? ' header_cart-list--no-cart' : 'header_cart-list--yes-cart' ?>"> 
                   <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/4122b759f91bd8dce310f1bc691e78ad.png" 
@@ -174,7 +173,15 @@
             <div class="col-12 col-sm-6 col-md-3 ">
               <div class="product">
                 <a href="detailProduct.php?id=<?php echo $row["id"] ?>"><img
-                    src="<?php echo $row["image"] ?>" class="data-mdb-attribute img-thumbnail"></a>
+                    src="<?php echo $row["image"] ?>" class="data-mdb-attribute img-thumbnail" style="border: 0px; border-radius: 20px;" ></a>
+                    <ul>
+                      <li><a href="">S</a></li>
+                      <li><a href="">M</a></li>
+                      <li><a href="">L</a></li>
+                      <li><a href="">XL</a></li>
+                      <li><a href="">2XL</a></li>
+                      <li><a href="">3XL</a></li>
+                    </ul>
                 <span style="color: black ;text-decoration: non-underline; ">
                   <?php echo $row["name"] ?>
                 </span>
@@ -201,7 +208,6 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
 
                     

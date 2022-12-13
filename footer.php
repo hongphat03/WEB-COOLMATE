@@ -46,19 +46,38 @@
             </div>
             <div class="footerrow">
                 <h5>Địa chỉ liên hệ</h5>
-                <p>HUB Hà Nội: Tầng 3-4, Tòa nhà BMM, KM2, Đường Phùng Hưng, Phường Phúc La, Quận Hà Đông, TP Hà Nội</p>
-                <p>HUB Tp HCM: Lầu 1, Số 163 Trần Trọng Cung, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh</p>
+                <?php
+                
+                $sql = "select * from infor";
+                $result = executeResult($sql);
+                foreach($result as $row){
+                ?>
+                <p><?php if ($row['address']) echo $row['address'];} ?> </p>
             </div>
             <div class="footerrow row">
                 <h5>COOLMATE lắng nghe bạn!</h5>
                 <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.</p>
                 <a class="comments" href="user/feedback.php">Gửi ý kiến</a>
-                <p style="padding-top: 20px;" > <i class="ti-mobile"></i> Hotline : <br>1900.272737 (028.7777.2737)</p>
-                <p > <i class="ti-email"></i> Email : <br> Cool@coolmate.me</p>
+                <p style="padding-top: 20px;" > <i class="ti-mobile"></i> Hotline : <br>
+                    <?php
+                    foreach ($result as $row) {
+                        if ($row['phone'])
+                            echo $row['phone'];
+                    }
+                    ?>
+                </p>
+                <p > <i class="ti-email"></i> Email : <br>
+                    <?php
+                        foreach ($result as $row) {
+                            if ($row['email'])
+                                echo $row['email'];
+                        }
+                    ?>
+                </p>
                 <div class="link_footer">
-                    <a href="https://www.youtube.com/channel/UCWw8wLlodKBtEvVt1tTAsMA" class=""><i class="ti-youtube"></i></a>
-                    <a href="https://www.instagram.com/coolmate.me/" class=""><i class="ti-instagram"></i></a> 
-                    <a href="https://www.facebook.com/coolmate.me" class=""> <i class="ti-facebook"></i></a>
+
+                    <a href="<?php  foreach ($result as $row) { if($row['youtube']) echo $row['youtube']; }?>" class=""><i class="ti-youtube"></i></a>
+                    <a href="<?php  foreach ($result as $row) { if($row['facebook']) echo $row['facebook'];}?>" class=""> <i class="ti-facebook"></i></a>
                 </div>
             </div>
         </div>

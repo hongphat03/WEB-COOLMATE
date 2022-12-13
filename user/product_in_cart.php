@@ -1,6 +1,6 @@
 <?php
         require_once('../database/dbhelper.php');
-        session_start();
+        include('../header.php');
             $email = "";
             if(!empty($_SESSION['email'])){
                 $email = $_SESSION['email'];
@@ -43,85 +43,118 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="css/styleproduct.css">
+    <link rel="stylesheet" href="../assets/styleheader.css">
+    <link rel="stylesheet" href="../assets/stylefooter.css">
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <td>Name</td>
-                <td>Price</td>
-                <td>Image</td>
-                <td>Type</td>
-                <td>Size</td>
-                <td>So Luong</td>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $sql = "select * from products_in_cart where email = '$email'";
-            $result = executeResult($sql);
-            if(count($result) > 0){
-                foreach($result as $row ){
-                    
-                    $idProduct = $row['productId'];
-                    $sql2 = "select * from products where id = '$idProduct'";
-                    $result2 = executeResult($sql2);
-                    foreach($result2 as $row2 ){
-            ?>
-            
-            <tr>
-                <td><?php echo $row2['name']?></td>
-                <td><?php echo $row2['price']?></td>
-                <td><img src="<?php echo $row2['image']?>" alt="" width="100px"></td>
-                <td><?php echo $row2['type']?></td>
-                <td><?php echo $row['size']?></td>
-                <td><?php echo $row['quantity']?></td>
-                <td>
-                
-                <form action="" method="post">
-                    <button name="deleteProductInCart" value="<?php echo $idProduct?>">Xoa</button>
-                </form>
-                </td>
-                <td>
-                <?php
-                        $temp = $row['quantity'];
-                        while($temp>0){
-                            $product .="$idProduct ";
-                            $temp--;
-                        }
-                    $totalCost += $row2['price']*$row['quantity'];
-                ?>           
-                </td>
-            </tr>
-            <?php
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="right-cart">
+                    <?php
+                        $sql = "select * from products_in_cart where email = '$email'";
+                        $result = executeResult($sql);
+                        if (count($result) <= 0) {
+                    ?>
+                        <h3 style="color: black;">Bạn chưa có sản phẩm nào trong giỏ hàng</h3 >
+                        <div class="btn-addproduct">
+                        <a class="btn btn-success" href="../product/products.php">Tiếp tục mua hàng</a>
+                        </div>
+                    <?php     
                     }
-                }
-            }
-            ?>
-        </tbody>
-    </table>
-    <div><a href="../product/products.php">Mua them san pham</a></div>
+                    if(count($result) > 0){
+                        ?>
+                    <div class="title"><h2>Giỏ hàng</h2></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Price</td>
+                                    <td>Image</td>
+                                    <td>Type</td>
+                                    <td>Size</td>
+                                    <td>So Luong</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    foreach($result as $row ){
+                                        
+                                        $idProduct = $row['productId'];
+                                        $sql2 = "select * from products where id = '$idProduct'";
+                                        $result2 = executeResult($sql2);
+                                        foreach($result2 as $row2 ){
+                                ?>
+                                
+                                <tr>
+                                    <td><?php echo $row2['name']?></td>
+                                    <td><?php echo $row2['price']?></td>
+                                    <td><img src="<?php echo $row2['image']?>" alt="" width="100px"></td>
+                                    <td><?php echo $row2['type']?></td>
+                                    <td><?php echo $row['size']?></td>
+                                    <td><?php echo $row['quantity']?></td>
+                                    <td>
+                                    
+                                    <form action="" method="post">
+                                        <button name="deleteProductInCart" value="<?php echo $idProduct?>">Xoa</button>
+                                    </form>
+                                    </td>
+                                    <td>
+                                    <?php
+                                            $temp = $row['quantity'];
+                                            while($temp>0){
+                                                $product .="$idProduct ";
+                                                $temp--;
+                                            }
+                                        $totalCost += $row2['price']*$row['quantity'];
+                                    ?>           
+                                    </td>
+                                </tr>
+                                <?php
+                                        }
+                                    }
+                                
+                                ?>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="2">Tổng</td>
+                                <td><?php echo $totalCost ?></td>
+                            </tfoot>
+                        </table>
+                                
+                    <div class="btn-addproduct">
+                        <a class="btn btn-success" href="../product/products.php">Mua thêm sản phẩm</a>
+                    </div>
+                </div>
+            </div>
 
-    <div class="container p-5 my-5 border">
-   
-    <form method="post">    
-        <?php if(empty($_SESSION['email'])){ ?>   
-         <!-- dia chi -->
-        <label for="name" class="form-text"><b>Ho va Ten</b> </label>    <br>
-        <input type="text" name="name" class="form-control" required>    <br>
-        <!-- dia chi -->
-        <label for="address" class="form-text"><b>Dia chi</b> </label>    <br>
-        <input type="text" name="address" class="form-control" required>    <br>
-        <!-- so dien thoai -->
-        <label for="phone_number" class="form-text"><b>SDT</b> </label>    <br>
-        <input type="text" id="phone" name="phone_number" class="form-control" required>    <br>
-
-        <label for="email" class="form-text"><b>Email</b> </label>    <br>
-        <input type="email" name="email" class="form-control">    <br>
-        <?php } ?>
-        <!-- submit -->
-        <button class="btn btn-success" name="buy">Mua hang</button>
-        </form>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="left-cart">
+                <div class="title"><h2>Thông tin vận chuyển</h2></div>   
+                <form method="post">   
+                <?php if(empty($_SESSION['email'])){ ?>   
+                    <div class="form-container">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="" placeholder="Họ tên" name="name" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="" placeholder="Số điện thoại" name="phone_number" required>
+                        </div>
+                    </div>
+                        <br>
+                        <!-- email -->
+                        <input type="mail" class="form-control" id="" placeholder="Email" name="mail" required> <br>
+                        <!-- Địa chỉ -->
+                        <input type="text" class="form-control" id="" placeholder="Địa chỉ (ví dụ: 103 Vạn Phúc, phường Vạn Phúc)" name="address" required> <br>
+                        <?php } ?>
+                        <button class="btn btn-success" name="buy">Đặt hàng</button>
+                        </div>
+                </form>
+                
         <?php
        
         
@@ -156,9 +189,13 @@
                 execute($sql);
             }           
         }
+    }
         ?>
-        
-</div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    
 </body>
 <script src="../public/validation.js"></script>
 </html>

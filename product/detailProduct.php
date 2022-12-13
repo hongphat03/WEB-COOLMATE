@@ -1,6 +1,6 @@
 <?php
 require_once('../database/dbhelper.php');
-session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,6 +94,7 @@ session_start();
 <body>
 
     <?php
+    include('../header.php');
     $sql1 = "SELECT DISTINCT material FROM products";
     $all_products = executeResult($sql1);
     $sql2 = "SELECT DISTINCT type FROM products";
@@ -124,30 +125,8 @@ session_start();
             } 
         }
     ?>
-    <div class="marquee">
-        <div>
-            <span> Nhập CMSHI50K Giảm 50k cho đơn hàng từ 449k</span>
-            <span>Nhập CMADTHU2 Tặng Áo Recycle Active V1 169k cho đơn hàng từ 549k </span>
-            <span> Nhập CMDKS20K Giảm 20k cho đơn hàng từ 249k </span>
-        </div>
-    </div>
+    
     <div class=" main">
-        <div class="header">
-            <div class="col-third">
-                <a href="../">
-                    <img src="https://www.coolmate.me/images/logo-coolmate-white.svg" width="95px" height="76px"
-                        alt="Logo_coolmate">
-                </a>
-            </div>
-            <div class="col-third">
-                <a href="products.php"> Sản phẩm</a>
-                <a href="" class="">Về Coolmate</a>
-                <a href="" class="">Chọn Size</a>
-            </div>
-            <div class="pdr col-third">
-                <a class="" href="../user/login.php"> <i class="ti-user"></i> Đăng nhập</a>
-            </div>
-        </div>
 
         <div class="menu">
             <nav class="navbar navbar-expand-lg bg-white">
@@ -212,7 +191,7 @@ session_start();
                                 </span>
                                 <a href="../user/product_in_cart.php"><img
                                         src="https://lzd-img-global.slatic.net/g/tps/tfs/TB1xEeTdBGw3KVjSZFDXXXWEpXa-75-66.png"
-                                        class="btn btn-primary me-5" style="height:30px ;width:30px"></a>
+                                        class="btn btn-primary me-5" style="height:30px ;"></a>
                                 <!-- No cart:header_cart-list--no-cart  <div class="header_cart-list header_cart-list--no-cart header_cart-list--yes-cart">-->
                                 <div
                                     class="header_cart-list <?php echo (count($result) == 0) ? ' header_cart-list--no-cart' : 'header_cart-list--yes-cart' ?>">
