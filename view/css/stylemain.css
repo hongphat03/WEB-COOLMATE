@@ -1,0 +1,122 @@
+* {box-sizing:border-box}
+.main{
+    background-color: #ffff;
+    padding: 0px 10px;
+}
+.row50{
+    width: 50%;
+    padding: 20px;
+    color: #000;
+}
+.slideshow-container {
+    position: relative;
+    margin: auto;
+  }
+  .mySlides {
+    display: none;
+  }
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+.nav_main{
+    background-color: #f9f86c;
+    position: relative;
+    height: 440px;
+    border-radius: 20px;
+}
+.nav_main img{
+    width: 50%;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border-radius: 20px;
+}
+.nav_nen{
+    filter: brightness(0);
+}
+.nav_chinh{
+    transform: translate(15%,-105%);
+}
+.nav_chinh:hover{
+   transform: translate(15%,-103%);
+}
+.row50 span:before{
+    border: 4px solid #e99083;
+    clip-path: polygon(100% 0, 100% 24%, 75% 100%, 18% 100%, 50% 0);
+}
+.row50 span:after{
+    border: 4px solid #F7C96F;
+    clip-path: polygon(0 0, 62% 0, 38% 100%, 16% 100%);
+}
+.row50 a{
+    background-color: #999;
+    padding: 10px;
+    border-radius: 15px;
+}
+.left_main{
+    padding-top: 20px;
+    padding-left: 20px;
+    display: none;
+    position: relative;
+}
+.nav_left_main{
+    position: absolute;
+    display: none;
+}
+.nav_left_main ul{
+    padding: 0px;
+    margin: 0px;
+}
+.nav_left_main li{
+    padding: 10px;
+    list-style: none;
+    width: 200px;
+    border-bottom: 1px solid #999;
+}
+.nav_left_main li a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #000;
+}
+.khampha {
+    height: 730px;
+}
+.nav_marquee{
+    height: 70px;
+    border-radius: 20px;
+}
+.nav_marquee div{
+    height: 100%;
+}
+.nav_marquee span{
+    font-size: 35px;
+    width: 50%;
+}
+
+@media (min-width: 740px) and (max-width:1023px){
+    .left_main{
+        display: block;
+    }
+    .left_main:hover i{
+        color: #F7C96F;
+    }
+    .left_main:hover .nav_left_main{
+        display: block;
+        z-index: 1;
+        background-color: white;
+    }
+    .nav_left_main li:hover a{
+        color: #F7C96F;
+    }
+    .nav_chinh{
+        transform: translate(-17%,-60%);
+    }
+    .nav_chinh:hover{
+       transform: translate(-17%,-65%);
+    }
+}

@@ -1,5 +1,5 @@
 <?php
-require_once('../database/dbhelper.php');
+ require_once('../../database/dbhelper.php');
 
 ?>
 <!DOCTYPE html>
@@ -11,10 +11,9 @@ require_once('../database/dbhelper.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../assets/styleheader.css">
-    <link rel="stylesheet" href="../assets/stylefooter.css">
+    <link rel="stylesheet" href="../../view/css/stylefooter.css">
+    <link rel="stylesheet" href="../../view/css/styleheader.css">
     <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="../assets/stylemain.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
     <style>
@@ -94,7 +93,7 @@ require_once('../database/dbhelper.php');
 <body>
 
     <?php
-    include('../header.php');
+    include("../../view/header.php");
     $sql1 = "SELECT DISTINCT material FROM products";
     $all_products = executeResult($sql1);
     $sql2 = "SELECT DISTINCT type FROM products";
@@ -189,7 +188,7 @@ require_once('../database/dbhelper.php');
                                 <span class="header_cart-notice">
                                     <?php echo count($result) ?>
                                 </span>
-                                <a href="../user/product_in_cart.php"><img
+                                <a href="product_in_cart.php"><img
                                         src="https://lzd-img-global.slatic.net/g/tps/tfs/TB1xEeTdBGw3KVjSZFDXXXWEpXa-75-66.png"
                                         class="btn btn-primary me-5" style="height:30px ;"></a>
                                 <!-- No cart:header_cart-list--no-cart  <div class="header_cart-list header_cart-list--no-cart header_cart-list--yes-cart">-->
@@ -556,12 +555,12 @@ require_once('../database/dbhelper.php');
     </div>
     <div>
         <br>
-        <?php include '../footer.php' ?>
+        <?php include("../../view/footer.php")  ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
 </body>
-<script src="../public/validation.js"></script>
+<script src="../../js/validation.js"></script>
 </html>

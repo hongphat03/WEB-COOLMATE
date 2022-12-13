@@ -1,5 +1,5 @@
 <?php
-        require_once('../database/dbhelper.php');
+  require_once('../../database/dbhelper.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,10 +9,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Coolmate - Giải pháp mua sắm cả tủ đồ cho nam giới - Coolmate</title>
-  <link rel="stylesheet" href="../assets/styleheader.css">
-  <link rel="stylesheet" href="../assets/stylefooter.css">
-  <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="../assets/stylemain.css">
+  <link rel="stylesheet" href="../../view/css/stylefooter.css">
+  <link rel="stylesheet" href="../../view/css/styleheader.css">
+  <link rel="stylesheet" href="../../view/css/themify-icons/themify-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
@@ -24,18 +23,25 @@
     $all_products = executeResult($sql1);
     $sql2="SELECT DISTINCT type FROM products";
     $all_products2 = executeResult($sql2);
-    include("../header.php")
+    include("../../view/header.php");
   ?>
   <div class=" main">
     <div class="menu">
       <nav class="navbar navbar-expand-lg bg-white">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <div style="padding-top: 0px;" class="left_main">
+              <i class="ti-menu"></i>
+              <div class="nav_left_main">
+                  <ul>
+                      <li><a href="http://localhost/COOLMATE/">Trang chủ</a>
+                          </li>
+                      <li><a href="http://localhost/COOLMATE/aboutcoolmate.php">Về Coolmate</a>
+                          </li>
+                      <li><a href="" class="">Chọn Size</a></li>
+                  </ul>
+              </div>
+          <!-- </div> -->
+          </div>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <form method="post" action="">
@@ -84,12 +90,10 @@
               $result = executeResult($sql);
               ?>
             <div class="col-md-3 text-end header_cart">
-              <div class="header_cart-swap">
+            <div class="header_cart-swap showCart">
               <span class="header_cart-notice"><?php echo count($result) ?></span>
-               <a href="../user/product_in_cart.php"><img
-                src="https://lzd-img-global.slatic.net/g/tps/tfs/TB1xEeTdBGw3KVjSZFDXXXWEpXa-75-66.png" class="btn btn-primary me-5" style="height:30px ;"></a>             
-                <!-- No cart:header_cart-list--no-cart  <div class="header_cart-list header_cart-list--no-cart header_cart-list--yes-cart">-->        
-                <div class="header_cart-list <?php echo (count($result)==0) ? ' header_cart-list--no-cart' : 'header_cart-list--yes-cart' ?>"> 
+               <a href="../user/product_in_cart.php"> <i style="color: black;" class="ti-shopping-cart"></i> </a>                    
+              <div class="header_cart-list <?php echo (count($result)==0) ? ' header_cart-list--no-cart' : 'header_cart-list--yes-cart' ?>"> 
                   <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/4122b759f91bd8dce310f1bc691e78ad.png" 
                   alt="" class="header_cart-no-cart-img">
                   <span class="header_cart-list-no-cart-msg">Chưa có sản phẩm</span>
@@ -137,7 +141,6 @@
               </div> 
             </div>  
              <!--end test-->         
-          </div>
         </div>
       </nav>
     </div>
@@ -202,7 +205,7 @@
   </div>
 <div>
   <br>
-<?php include '../footer.php'?>
+<?php include("../../view/footer.php") ?>
 </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

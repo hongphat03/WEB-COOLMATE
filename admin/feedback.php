@@ -24,13 +24,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../user/css/account.css">
+    <!-- <link rel="stylesheet" href="../user/css/account.css"> -->
     <title></title>
-    <style>
-        a{
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
     <div class="nav-list">

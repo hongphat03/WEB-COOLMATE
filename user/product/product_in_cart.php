@@ -1,6 +1,6 @@
 <?php
-        require_once('../database/dbhelper.php');
-        include('../header.php');
+        require_once('../../database/dbhelper.php');
+        include('../../view/header.php');
             $email = "";
             if(!empty($_SESSION['email'])){
                 $email = $_SESSION['email'];
@@ -44,9 +44,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <link rel="stylesheet" href="css/styleproduct.css">
-    <link rel="stylesheet" href="../assets/styleheader.css">
-    <link rel="stylesheet" href="../assets/stylefooter.css">
+    <link rel="stylesheet" href="../../view/css/stylefooter.css">
+    <link rel="stylesheet" href="../../view/css/styleheader.css">
+    <link rel="stylesheet" href="styleproduct.css">
 </head>
 <body>
 
@@ -61,7 +61,7 @@
                     ?>
                         <h3 style="color: black;">Bạn chưa có sản phẩm nào trong giỏ hàng</h3 >
                         <div class="btn-addproduct">
-                        <a class="btn btn-success" href="../product/products.php">Tiếp tục mua hàng</a>
+                        <a class="btn btn-success" href="product.php">Tiếp tục mua hàng</a>
                         </div>
                     <?php     
                     }
@@ -126,7 +126,7 @@
                         </table>
                                 
                     <div class="btn-addproduct">
-                        <a class="btn btn-success" href="../product/products.php">Mua thêm sản phẩm</a>
+                        <a class="btn btn-success" href="products.php">Mua thêm sản phẩm</a>
                     </div>
                 </div>
             </div>

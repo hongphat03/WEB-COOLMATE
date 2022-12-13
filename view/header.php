@@ -7,15 +7,15 @@
     </div> 
 <div class="header">
         <div class="col-third">    
-            <a href="">
+            <a href="http://localhost/COOLMATE/">
             <img src="https://www.coolmate.me/images/logo-coolmate-white.svg" width="95px" height="76px" alt="Logo_coolmate">
             </a></div>
-        <div class="col-third">
-        <a href="http://localhost/COOLMATE/product/products.php"> Sản phẩm</a>
-        <a href="http://localhost/COOLMATE/aboutcoolmate.php">Về Coolmate</a>
+        <div class="col-third headerHide">
+        <a href="http://localhost/COOLMATE/user/product/products.php"> Sản phẩm</a>
+        <a href="http://localhost/COOLMATE/view/aboutcoolmate.php">Về Coolmate</a>
         <a href="" class="">Chọn Size</a>
         </div>
-        <div class="pdr col-third">
+        <div class="pdr headerHide col-third " style="padding-top: 10px;">
             
         <?php 
         session_start();
@@ -24,6 +24,6 @@
         <?php } else{ ?>
         <a class="" href="http://localhost/COOLMATE/user/account/login.php"> <i class="ti-user"></i> Đăng nhập</a>
         <?php } ?>
-        <a href="http://localhost/COOLMATE/user/product_in_cart.php"> <i class="ti-shopping-cart"></i> Giỏ hàng</a>
+        <a href="http://localhost/COOLMATE/user/product/product_in_cart.php"> <i class="ti-shopping-cart"></i> Giỏ hàng</a>
         </div>
 </div>

@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./user/css/aboutstyle.css">
-    <link rel="stylesheet" href="assets/styleheader.css">
+
+    <link rel="stylesheet" href="css/styleheader.css">
+    <link rel="stylesheet" href="css/themify-icons/themify-icons.css">
     <title>CoolmateStory - Cool Mate</title>
 </head>
 <body>
-    <?php  include("header.php") ?>
+    <?php
+    include("header.php");
+    ?>
     <div class="container">
         <section class="cs-banner">
             <div class="cs-banner__image">

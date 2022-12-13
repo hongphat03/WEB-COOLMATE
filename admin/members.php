@@ -22,13 +22,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../user/css/account.css">
+    <!-- <link rel="stylesheet" href="../user/css/account.css"> -->
     <title>Document</title>
 </head>
 <body>
     <div class="nav-list">
         <ul class="col-2">
-            <li class=" active"><a href="./members.php" class="">Quản lý thành viên</a></li>
+            <li class="active"><a href="./members.php" class="">Quản lý thành viên</a></li>
             <li class=""><a href="./feedback.php" class="">Quản lý phản hồi</a></li>
             <li class=""><a href="./admins.php" class="">Quản lý admin</a></li>
             <li class=""><a href="./product.php" class="">Quản lý sản phẩm</a></li>

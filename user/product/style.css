@@ -91,6 +91,7 @@
 {
   position: relative;
   text-align: center;
+  z-index: 1;
 }
 .header_cart-swap{
   position: relative;
@@ -297,4 +298,15 @@ display: none;
 .product:hover ul{
   display: block;
   display: flex;
+}
+.showCart{
+  display: none;
+}
+@media (min-width: 740px) and (max-width:1023px){
+  .showCart{
+    display: block;
+    position: absolute;
+    right: 90px;
+    top: -15px;
+  }
 }

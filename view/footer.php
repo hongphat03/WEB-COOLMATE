@@ -12,7 +12,7 @@
                 <a href="">Phụ kiện khác</a>
             </div>
             <div class="footerrow">
-                <div class="row">
+                <div class="row"> 
                     <h5>Dịch vụ khách hàng</h5>
                     <a href="">Hỏi đáp - FAQs</a>
                     <a href="">Chính sách đổi trả 60 ngày</a>
@@ -56,8 +56,7 @@
             </div>
             <div class="footerrow row">
                 <h5>COOLMATE lắng nghe bạn!</h5>
-                <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.</p>
-                <a class="comments" href="user/feedback.php">Gửi ý kiến</a>
+               
                 <p style="padding-top: 20px;" > <i class="ti-mobile"></i> Hotline : <br>
                     <?php
                     foreach ($result as $row) {

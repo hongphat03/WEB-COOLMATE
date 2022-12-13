@@ -35,7 +35,7 @@ color: white;
 .header{
     background: #2F5ACF;
     display: flex;
-    padding: 0px 64px;
+    padding: 0px 50px;
     justify-content: center;
 
 }
@@ -50,9 +50,18 @@ color: white;
 }
 .col-third {
 
-    line-height: 76px;
+    line-height: 50px;
     width: 33.333333% !important;
 }
 .pdr{
-    padding-left: 160px;
+    padding-left: 130px;
+}
+/* tablet */
+@media (min-width: 740px) and (max-width:1023px){
+    .headerHide{
+    display: none;
+    }
+}
+/* mobiphone */
+@media(max-width:739px){
 }
