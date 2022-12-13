@@ -6,12 +6,12 @@
     if(isset($_POST['submit'])) {
         $name = $phone = $email = $password = $password2 = "";
         if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['address']) && isset($_POST['password']) && isset($_POST['password2']) && $_POST['password2'] == $_POST['password']) {
-            $name = $_POST['name'];
-            $phone = $_POST['phone'];
-            $email = $_POST['email'];
-            $address = $_POST['address'];
-            $password = $_POST['password'];
-            $password2 = $_POST['password2'];
+            $name =  htmlspecialchars($_POST['name']);
+            $phone =  htmlspecialchars($_POST['phone']);
+            $email =  htmlspecialchars($_POST['email']);
+            $address =  htmlspecialchars($_POST['address']);
+            $password =  htmlspecialchars($_POST['password']);
+            $password2 =  htmlspecialchars($_POST['password2']);
             $complete = true; 
             if(strlen($name) <= 0 || strlen($phone) <= 0 || strlen($address) <= 0) {
                 $complete = false;
@@ -28,7 +28,7 @@
             $sql = "select * from members where email = '$email'";
             $result = executeResult($sql);
             if(count($result) > 0){
-                $error["email"] = "Email Already Exits";
+                $error["email"] = "Email đã tồn tại";
                 $complete = false;
             }
             if($complete){
@@ -64,8 +64,10 @@
                     </div>
                     <input type="text" name="phone" id="phone" class="formControl" placeholder="SĐT của bạn" required>
                     <!-- email -->
-                    <input type="email" id="email" name="email" class="formControl" placeholder="Email của bạn" required>   
+                    <input type="email" id="email" name="email" class="formControl" placeholder="Email của bạn" required>  
+                    <div style="color: red;">
                     <?php if(strlen($error["email"]>0)) echo $error['email']; ?> 
+                    </div> 
                     <!-- address -->
                     <input type="text" name="address" class="formControl" placeholder="Địa chỉ" required>    
                      <!-- password -->
@@ -79,5 +81,5 @@
             </div>
         </div>
 </body>
-   <script src="../../public/validation.js" type="text/javascript"></script>
+   <script src="../../js/validation.js" type="text/javascript"></script>
 </html> 

@@ -5,8 +5,8 @@
 		require_once('../../database/dbhelper.php');
 		$email = $password = '';
 		if(isset($_POST['email']) && isset($_POST['password'])) {
-			$email = $_POST['email'];
-			$password = $_POST['password'];
+			$email =  htmlspecialchars($_POST['email']);
+			$password =  htmlspecialchars($_POST['password']);
 			$sql = "select * from admins where email = '$email' and password = '$password'";
 			$result = executeResult($sql);
 			if($result != null && count($result) > 0) {
@@ -64,5 +64,5 @@
 	</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../public/validation.js" type="text/javascript"></script>
+<script src="../../js/validation.js" type="text/javascript"></script>
 </html> 

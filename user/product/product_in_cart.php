@@ -16,10 +16,10 @@
                 $name = $address = $phone_number = '';
                 if(empty($_SESSION['email'])){
                     if (isset($_POST['name']) && isset($_POST['phone_number']) && isset($_POST['email']) && isset($_POST['address'])) {
-                        $name = $_POST['name'];
-                        $address = $_POST['address'];
-                        $phone_number = $_POST['phone_number'];
-                        $email = $_POST['email'];
+                        $name =  htmlspecialchars($_POST['name']);
+                        $address =  htmlspecialchars($_POST['address']);
+                        $phone_number =  htmlspecialchars($_POST['phone_number']);
+                        $email =  htmlspecialchars($_POST['email']);
                         $sql = "update products_in_cart set email = '$email'";
                         execute($sql);
                     }   

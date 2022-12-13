@@ -5,7 +5,8 @@
         if(isset($_GET['status'])){
             $status = $_GET['status'];
             $sql = "update feedback
-            set status = $status where content ='$content' ";
+            set status = $status 
+            where content ='$content' ";
             execute($sql);
         }
         else{

@@ -27,8 +27,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../../view/css/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../css/account.css">
-    <link rel="stylesheet" href="../../assets/styleheader.css">
-    <link rel="stylesheet" href="../../assets/stylefooter.css">
+    <link rel="stylesheet" href="../../view/css/stylefooter.css">
+    <link rel="stylesheet" href="../../view/css/styleheader.css">
+    <link rel="stylesheet" href="../../view/css/stylemain.css">
+    <link rel="stylesheet" href="../../view/css/themify-icons/themify-icons.css">
+
     <title>Document</title>
     <style>
         
