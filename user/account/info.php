@@ -55,7 +55,7 @@
     <link rel="stylesheet" href="../../view/css/styleheader.css">
     <link rel="stylesheet" href="../../view/css/stylemain.css">
     <link rel="stylesheet" href="../../view/css/themify-icons/themify-icons.css">
-
+    <title>Document</title>
     <style>
         
     </style>
