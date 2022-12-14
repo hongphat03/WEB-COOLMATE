@@ -49,6 +49,7 @@
     <title>phan2_bai3</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/validation.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../css/stylelogin.css">
  
 </head>
@@ -81,5 +82,5 @@
             </div>
         </div>
 </body>
-   <script src="../../js/validation.js" type="text/javascript"></script>
+   
 </html> 
