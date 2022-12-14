@@ -347,7 +347,7 @@
                             <div class="col-4">
                                 <div class="d-flex flex-column text-center height100">
                                     <div>
-                                        <img src="https://www.coolmate.me/images/icons/icon3.svg" />
+                                        <img src="https://www.coolmate.me/images/icons/icon3.svg" alt=""/>
                                     </div>
                                     <p>Đổi trả cực dễ <br>chỉ cần số điện thoại</p>
                                 </div>
@@ -356,7 +356,7 @@
                             <div class="col-4">
                                 <div class="d-flex flex-column text-center height100">
                                     <div>
-                                        <img src="https://www.coolmate.me/images/icons/icon4.svg" />
+                                        <img src="https://www.coolmate.me/images/icons/icon4.svg" alt=""/>
                                     </div>
                                     <p>Miễn phí vận chuyển <br>cho đơn hàng trên 200k</p>
                                 </div>
@@ -365,7 +365,7 @@
                             <div class="col-4">
                                 <div class="d-flex flex-column text-center height100">
                                     <div>
-                                        <img src="https://www.coolmate.me/images/icons/icon5.svg" />
+                                        <img src="https://www.coolmate.me/images/icons/icon5.svg" alt=""/>
                                     </div>
                                     <p>60 ngày đổi trả <br>vì bất kỳ lý do gì</p>
                                 </div>
@@ -374,7 +374,7 @@
                             <div class="col-4">
                                 <div class="d-flex flex-column text-center height100">
                                     <div>
-                                        <img src="https://www.coolmate.me/images/icons/icon2.svg" />
+                                        <img src="https://www.coolmate.me/images/icons/icon2.svg" alt=""/>
                                     </div>
                                     <p>Hotline 1900.27.27.37<br> hỗ trợ từ 8h30 - 22h mỗi ngày</p>
                                 </div>
@@ -383,7 +383,7 @@
                             <div class="col-4">
                                 <div class="d-flex flex-column text-center height100">
                                     <div>
-                                        <img src="https://www.coolmate.me/images/icons/icon1.svg" />
+                                        <img src="https://www.coolmate.me/images/icons/icon1.svg" alt=""/>
                                     </div>
                                     <p>Đến tận nơi nhận hàng trả,<br> hoàn tiền trong 24h</p>
                                 </div>
@@ -392,7 +392,7 @@
                             <div class="col-4">
                                 <div class="d-flex flex-column text-center height100">
                                     <div>
-                                        <img src="https://www.coolmate.me/images/icons/icon6.svg" />
+                                        <img src="https://www.coolmate.me/images/icons/icon6.svg" alt=""/>
                                     </div>
                                     <p>Giao hàng nhanh toàn quốc</p>
                                 </div>
